@@ -1,0 +1,62 @@
+import React, { Component } from 'react';
+import styled from 'styled-components';
+
+class ChildPropsDropDown extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            contentDisplay: "none",
+            currentNumber: 1
+         };
+    }
+    showContent = () => {
+        this.setState({ contentDisplay: "block" })
+    }
+    hideContent = () => {
+        this.setState({ contentDisplay: "none" })
+    }
+    setCurrentNumber = (e) => {
+        this.setState({ currentNumber: e.target.innerHTML}, () => this.props.handleSelectNumber(this.props.letter, this.state.currentNumber))
+    }
+    render() {
+        return (
+            <DropDownStyle showContent={this.state.contentDisplay} bgColor={this.props.bgColor}>
+                <h3>{this.props.letter}</h3>
+                <div onMouseEnter={this.showContent} onMouseLeave={this.hideContent}>
+                    <button>
+                        {this.state.currentNumber} <span className="arrow">&#9660;</span>
+                    </button>
+                    <div className="dropDownContent">
+                        { Array.from({length:5}, (_, i) => <div onClick={this.setCurrentNumber} key={i}>{i + 1}</div>) }
+                    </div>
+                </div>
+            </DropDownStyle>
+        );
+    }
+}
+
+export default ChildPropsDropDown;
+
+const DropDownStyle = styled.div`
+    background-color: ${props => props.bgColor};
+    padding: 10px;
+    width: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: inline-block;
+    margin: 20px;
+    button {
+        width: 50px;
+    }
+    .dropDownContent {
+        display: ${props => props.showContent}
+        position: absolute;
+        background-color: blue;
+        width: 50px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .arrow {
+        float: right
+    }
+`
