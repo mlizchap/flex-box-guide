@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { globalStyle } from '../globalStyle';
 
 class ChildPropsDropDown extends Component {
     constructor(props) {
@@ -45,13 +46,16 @@ const DropDownStyle = styled.div`
     margin-bottom: 20px;
     display: inline-block;
     margin: 20px;
+    border-radius: 2px;
     button {
         width: 50px;
+        background-color: ${globalStyle.darkgray};
+        color: ${props => props.bgColor};
     }
     .dropDownContent {
         display: ${props => props.showContent}
         position: absolute;
-        background-color: blue;
+        background-color: ${globalStyle.lightgray};
         width: 50px;
         margin-right: auto;
         margin-left: auto;

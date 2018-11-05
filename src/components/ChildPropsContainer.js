@@ -1,6 +1,7 @@
 import React, { Component } from 'react';   
 
 import ChildPropsDropDown from './ChildPropsDropDown';
+import { globalStyle } from '../globalStyle';
 
 class ChildPropsContainer extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class ChildPropsContainer extends Component {
     render() {
         return (
             <div>
-                <ChildPropsDropDown handleSelectNumber={this.updateFlexGrow} />
+                <ChildPropsDropDown letter="a" handleSelectNumber={this.updateFlexGrow} bgColor={globalStyle.highlighta} />
             </div>
         );
     }
