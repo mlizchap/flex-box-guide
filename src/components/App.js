@@ -12,7 +12,6 @@ class App extends Component {
             <div>
                 flex box guide
                 <ChildPropsContainer />
-                <div>test</div>
             </div>
         );
     }

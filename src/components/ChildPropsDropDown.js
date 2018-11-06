@@ -11,13 +11,17 @@ class ChildPropsDropDown extends Component {
          };
     }
     showContent = () => {
+        this.props.setCurrent()
         this.setState({ contentDisplay: "block" })
     }
     hideContent = () => {
         this.setState({ contentDisplay: "none" })
     }
     setCurrentNumber = (e) => {
-        this.setState({ currentNumber: e.target.innerHTML}, () => this.props.handleSelectNumber(this.props.letter, this.state.currentNumber))
+        
+        this.setState({ 
+            currentNumber: e.target.innerHTML}, 
+            () => this.props.handleSelectNumber(this.props.letter, this.state.currentNumber))
     }
     render() {
         return (

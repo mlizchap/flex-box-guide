@@ -30,8 +30,8 @@ export default (ChildComponent, divWidth) => {
         constructor(props) {
             super(props);
             this.state = {
-                width: '200px',
-                height: '200px'
+                width: '90%',
+                height: '150px'
             }
             this.boxRef = React.createRef();
             this.childCompRef = React.createRef();
@@ -42,14 +42,10 @@ export default (ChildComponent, divWidth) => {
             window.addEventListener('mouseup', this.stopResizing, false);
         }
         startResizing = (e) => {
-            // console.log((e.clientY - this.boxRef.current.offsetTop) + 'px')
             this.setState({
                 width: (e.clientX - this.boxRef.current.offsetLeft) + 'px',
                 height: (e.clientY) + 'px'
-            }, () => console.log(this.state))
-
-            //this.boxRef.current.style.width = (e.clientX - this.boxRef.current.offsetLeft) + 'px'
-            //this.boxRef.current.style.height = (e.clientY - this.boxRef.current.offsetTop) + 'px'
+            })
         }
         stopResizing = (e) => {
             window.removeEventListener('mousemove', this.startResizing, false);
