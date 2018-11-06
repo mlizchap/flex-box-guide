@@ -23,7 +23,6 @@ class App extends Component {
         return (
             <div>
                 {/* <DropDownMenu defaultValue="test" contentItems={items} /> */}
-                <ChildPropItemInfoDisplay />
                 flex box guide
                 <FlexDirectionChange handleChange={this.changeDirection} />
                 <ChildPropsContainer flexDirection={this.state.direction} />

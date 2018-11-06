@@ -4,6 +4,7 @@ import ChildPropsDropDown from './ChildPropsDropDown';
 import { globalStyle } from '../globalStyle';
 import ChildPropsItemContainer from './ChildPropsItemContainer';
 import { flexBoxData } from '../static/flexBoxData';
+import ChildPropItemInfoDisplay from './ChildPropItemInfoDisplay';
 
 const items = ["a", "b", "c"]
 
@@ -17,17 +18,32 @@ class ChildPropsContainer extends Component {
             flexBasis: {a: '10%', b: 'auto', c: '40%'}
         };
     }
-    updateNumberSelection = (numberSelected, currentProperty, letter) => {
-        console.log(currentProperty)
-            this.setState(
-                { [currentProperty]: {...this.state[`${currentProperty}`], [`${letter}`]: Number(numberSelected)} },
-                () => console.log(this.state)
-            )
+    // updateNumberSelection = (numberSelected, currentProperty, letter) => {
+    //     console.log(currentProperty)
+    //         this.setState(
+    //             { [currentProperty]: {...this.state[`${currentProperty}`], [`${letter}`]: Number(numberSelected)} },
+    //             () => console.log(this.state)
+    //         )
+    // }
+    updateNewValue = (selectedValue, title, letter) => {
+        //console.log(selectedValue, title, letter)
+        this.setState(
+            { [title]: {...this.state[`${title}`], [letter]: (title === "flexBasis" ? selectedValue : parseInt(selectedValue))}}, 
+            () => console.log(this.state)
+        )
     }
     render() {
         return (
             <div style={{marginBottom: '200px'}}>
-                {items.map(item => {
+                <ChildPropItemInfoDisplay handleSelect={this.updateNewValue}/>
+                <ChildPropsItemContainer 
+                    flexBoxDataItems={items} 
+                    flexShrink={this.state.flexShrink}
+                    flexGrow={this.state.flexGrow}
+                    flexBasis={this.state.flexBasis}
+                    {...this.props}
+                /> 
+                {/* {items.map(item => {
                     return (
                         <ChildPropsDropDown 
                             key={item} 
@@ -44,7 +60,7 @@ class ChildPropsContainer extends Component {
                     flexGrow={this.state.flexGrow}
                     flexBasis={this.state.flexBasis}
                     {...this.props}
-                />
+                /> */}
             </div>
         )
     }

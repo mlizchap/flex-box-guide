@@ -10,17 +10,20 @@ const data = {
     
     flexPropInfo: [
         {
+            title: "flex-grow",
+            camelCaseTitle: "flexGrow",
+            content: [0, 1, 2, 3, 4, 5],
+            defaultValue: 1
+        },
+        {
+            title: "flex-shrink",
+            camelCaseTitle: "flexShrink",
+            content: [0, 1, 2, 3, 4, 5],
+            defaultValue: 1
+        },
+        {
             title: "flex-basis",
-            content: [0, 1, 2, 3, 4, 5],
-            defaultValue: 1
-        },
-        {
-            title: "flex-shrink",
-            content: [0, 1, 2, 3, 4, 5],
-            defaultValue: 1
-        },
-        {
-            title: "flex-shrink",
+            camelCaseTitle: "flexBasis",
             content: ["20%", "33%", "40%", "60%", "auto", "content"],
             defaultValue: "33%"
         }
@@ -36,27 +39,27 @@ class ChildPropItemInfoDisplay extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            display: {
-                flexGrow: "none",
-                flexShrink: "none",
-                flexBasis: "none"
-            },
-            currentNumber: {
+            currentValues: {
                 flexGrow: 1,
                 flexShrink: 1,
                 flexBasis: '30px'
             }
          };
     }
-    selectItem = (selected) => {
-        console.log(selected)
+    selectItem = (selectedValue, title, itemVal) => {
+        //console.log("SEL", selectedValue)
+        this.setState(
+            { currentValues: {...this.state.currentValues, [title]: (title === "flexBasis") ? selectedValue : parseInt(selectedValue)}}, 
+            () => this.props.handleSelect(selectedValue, title, itemVal)
+        )
     }
-    renderFlexValuesDisplay = () => {
+    renderFlexValuesDisplay = (itemVal) => {
+        //console.log(itemVal)
         return data.flexPropInfo.map(item => {
             return (
-               <div className="item">
+               <div className="item" key={item.title}>
                    <span className="title">{item.title}:</span>
-                   <DropDownMenu  contentItems={item.content} defaultValue={item.defaultValue} width={100}/>
+                   <DropDownMenu  handleSelect={(selected) => this.selectItem(selected, item.camelCaseTitle, itemVal)} contentItems={item.content} defaultValue={item.defaultValue} width={100}/>
                </div>
             )
        })
@@ -66,14 +69,12 @@ class ChildPropItemInfoDisplay extends Component {
             <ChildPropItemInfoDisplayStyle>
                 {data.items.map(item => {
                     return (
-                        <div>
+                        <div className="itemCard" key={item}>
                             <h3>{item}</h3>
-                            {this.renderFlexValuesDisplay()}
+                            {this.renderFlexValuesDisplay(item)}
                         </div>
                     )
                 })}
-
-
             </ChildPropItemInfoDisplayStyle>
         );
     }
@@ -82,8 +83,14 @@ class ChildPropItemInfoDisplay extends Component {
 export default ChildPropItemInfoDisplay;
 
 const ChildPropItemInfoDisplayStyle = styled.div`
-    background-color: red;
-    width: 250px;
+    display: flex;
+    text-align: center;
+    .itemCard {
+        margin: 20px;
+        padding: 20px;
+        background-color: red;
+        // display: inline-block;
+    }
     .title {
         display: inline-block;
         width: 100px;
@@ -94,7 +101,4 @@ const ChildPropItemInfoDisplayStyle = styled.div`
     .item {
         margin-top: 5px;
     }
-    // div {
-    //     margin-top: 5px;
-    // }
 `

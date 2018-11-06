@@ -10,7 +10,6 @@ class DropDownMenu extends Component {
          };
     }
     showContent = () => {
-        console.log("hi")
         this.setState({ display: "block"})
     }
     hideContent = () => {
@@ -70,6 +69,7 @@ const DropDownMenuStyle = styled.div`
         color: ${props => props.contentFontColor};
         font-size: ${props => props.fontSize};
         font-family: inherit;
+        z-index: 5;
     }
     .item {
        padding: 5px;
