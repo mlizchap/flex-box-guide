@@ -10,7 +10,15 @@ class ChildPropsItemContainer extends Component {
         return (
             <React.Fragment>
                 {this.props.flexBoxDataItems.map(item => {
-                    return <ChildPropsItem key={item} flexGrow={this.props.flexGrow[`${item}`]} letter={item} bgColor={globalStyle.childPropColors[`${item}`]}/>
+                    return (
+                        <ChildPropsItem 
+                            key={item} 
+                            flexGrow={this.props.flexGrow[`${item}`]} 
+                            flexShrink={this.props.flexShrink[`${item}`]}
+                            letter={item} 
+                            bgColor={globalStyle.childPropColors[`${item}`]}
+                        />
+                    )
                 })}
             </React.Fragment>
         );

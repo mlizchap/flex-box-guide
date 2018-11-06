@@ -14,10 +14,10 @@ class ChildPropsContainer extends Component {
             flexShrink: { a: 1, b: 1, c: 1},
         };
     }
-    updateFlexGrow = (currentLetter, selectedNumber) => {
+    updateNumberChange = (currentLetter, selectedNumber) => {
         let currentProp = this.state.currentProp
         this.setState(
-            { [currentProp]: {...this.state[`${currentProp}`], [currentLetter]: selectedNumber}},
+            { [currentProp]: {...this.state[`${currentProp}`], [currentLetter]: Number(selectedNumber)}},
             () => console.log(this.state)
         )
     }
@@ -25,6 +25,7 @@ class ChildPropsContainer extends Component {
         return (
             <div style={{marginBottom: '200px'}}>
                 {flexBoxData.childrenProperties.map(childProp => {
+                    { (childProp.title === "flex-shrink") ? console.log("yes") : console.log("no") }
                     return (
                         <div key={childProp.title}>
                             <h3>{childProp.title}</h3>
@@ -36,14 +37,17 @@ class ChildPropsContainer extends Component {
                                         //flexShrink={this.state.flexShrink}
                                         letter={item} 
                                         setCurrent={() => this.setState({ currentProp: childProp.camelCaseTitle})}
-                                        handleSelectNumber = {this.updateFlexGrow} 
+                                        handleSelectNumber = {this.updateNumberChange} 
                                         bgColor={globalStyle.childPropColors[`${item}`]} 
                                     />
                                 )
                             })}
                             <ChildPropsItemContainer 
                                 flexBoxDataItems={childProp.items} 
-                                flexGrow={(childProp.title === "flex-grow") ? this.state.flexGrow : { a: 1, b: 1, c: 1}} />
+                                flexShrink={(childProp.title === "flex-shrink") ? this.state.flexShrink : { a: 1, b: 1, c: 1 }} 
+                                flexGrow={(childProp.title === "flex-grow") ? this.state.flexGrow : { a: 1, b: 1, c: 1}} 
+                            />
+                                
                         </div>
                     )
                 })}
