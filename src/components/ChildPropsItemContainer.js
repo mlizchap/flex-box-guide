@@ -13,6 +13,7 @@ class ChildPropsItemContainer extends Component {
                     return (
                         <ChildPropsItem 
                             key={item} 
+                            {...this.props}
                             flexGrow={this.props.flexGrow[`${item}`]} 
                             flexShrink={this.props.flexShrink[`${item}`]}
                             letter={item} 

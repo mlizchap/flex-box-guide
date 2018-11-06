@@ -9,7 +9,8 @@ const ResizeBox = styled.div`
         background-color: ${globalStyle.darkgray};
         color: white;
         z-index: 2;
-        display:flex;
+        display: flex;
+        flex-direction: ${props => props.flexDirection}
         flex-direction: ${props => props.flexDirection};
         justify-content:center;
         align-items:center;

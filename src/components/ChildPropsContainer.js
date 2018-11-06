@@ -33,8 +33,6 @@ class ChildPropsContainer extends Component {
                                 return (
                                     <ChildPropsDropDown 
                                         key={item} 
-                                        //flexGrow={this.state.flexGrow} 
-                                        //flexShrink={this.state.flexShrink}
                                         letter={item} 
                                         setCurrent={() => this.setState({ currentProp: childProp.camelCaseTitle})}
                                         handleSelectNumber = {this.updateNumberChange} 
@@ -43,6 +41,8 @@ class ChildPropsContainer extends Component {
                                 )
                             })}
                             <ChildPropsItemContainer 
+                                {...this.props}
+                                flexDirection="column"
                                 flexBoxDataItems={childProp.items} 
                                 flexShrink={(childProp.title === "flex-shrink") ? this.state.flexShrink : { a: 1, b: 1, c: 1 }} 
                                 flexGrow={(childProp.title === "flex-grow") ? this.state.flexGrow : { a: 1, b: 1, c: 1}} 
