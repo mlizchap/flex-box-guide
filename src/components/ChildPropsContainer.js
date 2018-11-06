@@ -11,7 +11,7 @@ class ChildPropsContainer extends Component {
         this.state = { 
             currentProp: "",
             flexGrow: { a: 1, b: 1, c: 1},
-            flexShrink: { a: 1, b: 1, c: 1},
+            flexShrink: { a: 1, b: 2, c: 1},
         };
     }
     updateFlexGrow = (currentLetter, selectedNumber) => {
@@ -32,6 +32,8 @@ class ChildPropsContainer extends Component {
                                 return (
                                     <ChildPropsDropDown 
                                         key={item} 
+                                        //flexGrow={this.state.flexGrow} 
+                                        //flexShrink={this.state.flexShrink}
                                         letter={item} 
                                         setCurrent={() => this.setState({ currentProp: childProp.camelCaseTitle})}
                                         handleSelectNumber = {this.updateFlexGrow} 
@@ -40,10 +42,10 @@ class ChildPropsContainer extends Component {
                                 )
                             })}
                             <ChildPropsItemContainer 
-                                {...this.props}
-                                flexDirection="column"
                                 flexBoxDataItems={childProp.items} 
-                                flexGrow={(childProp.title === "flex-grow") ? this.state.flexGrow : { a: 1, b: 1, c: 1}} />
+                                flexGrow={(childProp.title === "flex-grow") ? this.state.flexGrow : { a: 1, b: 1, c: 1}} 
+                                flexShrink={(childProp.title === "flex-shrink") ? this.state.flexShrink : { a: 1, b: 1, c: 1}} 
+                                />
                         </div>
                     )
                 })}

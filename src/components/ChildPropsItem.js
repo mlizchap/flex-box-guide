@@ -24,6 +24,7 @@ export default ChildPropsItem;
 
 const Item = styled.div`
     flex-grow: ${props => props.flexGrow};
+    flex-shrink: ${props => props.flexShrink}
     background-color: ${props => props.bgColor};
-    min-width: 50px;
+    width: 50px;
 `
