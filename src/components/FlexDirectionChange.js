@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { globalStyle } from '../globalStyle';
+import DropDownMenu from './DropDownMenu';
+
+const items = ["row", "column", "row-reverse"]
 
 class FlexDirectionChange extends Component {
     constructor(props) {
@@ -10,8 +13,15 @@ class FlexDirectionChange extends Component {
     render() {
         return (
             <FlexDirectionChangeStyle>
-                flex-direction: {this.props.flexDirection}<br />
-                <button onClick={this.props.handleChange}>change directions</button>
+                <div><span className="title">flex-direction:</span>{this.props.flexDirection}</div>
+                <DropDownMenu 
+                    defaultValue="row" 
+                    contentItems={items} 
+                    handleSelect={this.props.handleChange} 
+                    width={150}
+                    fontSize="10pt"
+                    padding="10px"
+                />
             </FlexDirectionChangeStyle>
         );
     }
@@ -20,9 +30,20 @@ class FlexDirectionChange extends Component {
 export default FlexDirectionChange;
 
 const FlexDirectionChangeStyle = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+    .title {
+        line-height: 35px;
+        padding-right: 10px;
+        font-size: 18pt;
+        color: ${globalStyle.mainColor};
+        font-family: ${globalStyle.titleFont};
+    }
     z-index: 100;
     width: 100%;
-    background-color: ${globalStyle.mediumgray};
+    background-color: ${globalStyle.lightgray};
     color: ${globalStyle.highlight2}
     position: -webkit-sticky; /* Safari */
     position: sticky;

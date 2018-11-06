@@ -8,5 +8,8 @@ export const globalStyle = {
         a: '#c6efff',
         b: '#c6e5ff',
         c: '#9ed2ff'
-    }
+    },
+
+    mainFont: 'Raleway',
+    titleFont: 'Cabin Sketch',
 }

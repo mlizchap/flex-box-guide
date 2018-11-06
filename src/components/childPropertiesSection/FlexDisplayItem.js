@@ -23,8 +23,9 @@ const Item = styled.div`
     width: 50px;
     height: 50px;
     line-height: 50px;
-    margin: 10px;
+    //margin: 10px;
     border-radius: 2px;
+    font-size: 14pt;
     text-align: center;
     color: ${globalStyle.mainColor}
 `

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import { globalStyle} from '../globalStyle'
+
 class DropDownMenu extends Component {
     constructor(props) {
         super(props);
@@ -45,20 +47,23 @@ export default DropDownMenu;
 const DropDownMenuStyle = styled.div`
     font-family: inherit;
     display: inline-block;
+    
     .dropDownContainer {
         width: ${props => props.width}px;
     }
     .currentContent {
         display: inline-block;
-        width: ${props => props.width/3}px;
-        // background-color: orange;
     }
     button {
+        padding: ${props => props.padding};
+
         width: ${props => props.width}px;
         background-color: ${props => props.buttonColor};
-        // padding: 10px;
         font-size: ${props => props.fontSize};
         color: ${props => props.buttonFontColor}
+        outline: none;
+        border: none;
+        font-family: ${globalStyle.mainFont}
     }
     .content {
         position: absolute;
@@ -79,6 +84,7 @@ const DropDownMenuStyle = styled.div`
     }
     .arrow {
         float: right;
+        padding-right: 5px;
     }
 `
 DropDownMenu.defaultProps = {
@@ -86,10 +92,11 @@ DropDownMenu.defaultProps = {
 }
 DropDownMenuStyle.defaultProps = {
     width: '150',
-    fontSize: '10pt',
+    fontSize: '9pt',
     buttonColor: '#5e7999',
     buttonFontColor: `#edf5ff`,
     contentColor: `#dbdbdb`,
     contentFontColor: `#545454`,
     contentHighlight: `#f2f2f2`,
+    padding: `3px`
 }

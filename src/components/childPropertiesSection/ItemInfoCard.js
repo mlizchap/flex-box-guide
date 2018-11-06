@@ -49,7 +49,7 @@ class ItemCardDisplay extends Component {
         )
     }
     renderFlexValuesDisplay = (itemVal) => {
-        return data.flexPropInfo.map(item => {
+        return this.props.flexPropInfo.map(item => {
             return (
                <div className="item" key={item.title}>
                    <span className="title">{item.title}:</span>
@@ -77,7 +77,7 @@ export default ItemCardDisplay;
 const ItemCardStyle = styled.div`
     display: flex;
     h3 {
-        font-size: 18pt;
+        font-size: 14pt;
         padding-top: 0px;
         padding-bottom: 0px;
         margin-top: 0px;
@@ -89,7 +89,7 @@ const ItemCardStyle = styled.div`
     .itemCard {
         display: inline-block;
         width: 200px;
-        margin: 20px;
+        margin: 20px 0;
         padding: 20px;
         background-color: ${props => props.bgColor};
     }

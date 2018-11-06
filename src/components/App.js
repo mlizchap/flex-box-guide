@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 import FlexDirectionChange from './FlexDirectionChange';
-import ChildPropMainContainer from './childPropertiesSection/MainContainer';
+import ChildPropertiesSection from './childPropertiesSection';
+import { globalStyle } from '../globalStyle';
 
 const items = ["one", "two", "three"]
 
@@ -22,10 +24,19 @@ class App extends Component {
             <div>
                 flex box guide
                 <FlexDirectionChange handleChange={this.changeDirection} />
-                <ChildPropMainContainer flexDirection={this.state.direction}/>
+                <ContentDisplay>
+                    <ChildPropertiesSection flexDirection={this.state.direction}/>
+                </ContentDisplay>
             </div>
         );
     }
 }
 
 export default App;
+
+const ContentDisplay = styled.div`
+    font-family: ${globalStyle.mainFont}
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+`

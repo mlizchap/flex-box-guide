@@ -12,7 +12,6 @@ const ResizeBox = styled.div`
         display:flex;
         justify-content:center;
         align-items:center;
-        border-radius: 10px;
     }
     #handle {
         background-color: #727272;
@@ -29,14 +28,13 @@ export default (ChildComponent, divWidth) => {
         constructor(props) {
             super(props);
             this.state = {
-                width: '90%',
-                height: '150px',
+                width: '100%',
+                height: '100px',
             }
             this.boxRef = React.createRef();
             this.childCompRef = React.createRef();
         }
         initialiseResize = (e) => {
-            
             window.addEventListener('mousemove', this.startResizing, false);
             window.addEventListener('mouseup', this.stopResizing, false);
         }
@@ -46,7 +44,7 @@ export default (ChildComponent, divWidth) => {
             
             this.setState({
                 width: (e.clientX - this.boxRef.current.offsetLeft) + 'px',
-                height: (e.clientY - 200) + 'px'
+                height: (e.clientY - this.boxRef.current.getBoundingClientRect().top) + 'px'
             })
         }
         stopResizing = (e) => {

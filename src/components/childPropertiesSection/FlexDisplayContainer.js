@@ -32,7 +32,6 @@ const FlexDisplayContainerStyle = styled.div`
     display: flex;
     flex-direction: ${props => props.flexDirection};
     width: 100%;
-    padding: 20px;
-    // background-color: orange;
-    //height: 100%;
+    height: 100%;
+    overflow: scroll;
 `
