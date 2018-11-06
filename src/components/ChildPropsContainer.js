@@ -14,6 +14,7 @@ class ChildPropsContainer extends Component {
             currentProp: "",
             flexGrow: { a: 1, b: 1, c: 1},
             flexShrink: { a: 1, b: 1, c: 1},
+            flexBasis: {a: '10%', b: 'auto', c: '40%'}
         };
     }
     updateNumberSelection = (numberSelected, currentProperty, letter) => {
@@ -41,6 +42,7 @@ class ChildPropsContainer extends Component {
                     flexBoxDataItems={items} 
                     flexShrink={this.state.flexShrink}
                     flexGrow={this.state.flexGrow}
+                    flexBasis={this.state.flexBasis}
                     {...this.props}
                 />
             </div>

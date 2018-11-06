@@ -16,6 +16,7 @@ class ChildPropsItemContainer extends Component {
                             key={item} 
                             flexGrow={this.props.flexGrow[`${item}`]} 
                             flexShrink={this.props.flexShrink[`${item}`]}
+                            flexBasis={this.props.flexBasis[`${item}`]}
                             letter={item} 
                             bgColor={globalStyle.childPropColors[`${item}`]}
                         />

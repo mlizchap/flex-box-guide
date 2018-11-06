@@ -30,7 +30,7 @@ class ChildPropsDropDown extends Component {
             currentNumber: {
                 flexGrow: 1,
                 flexShrink: 1,
-                flexBasis: 1
+                flexBasis: '30px'
             }
          };
     }
@@ -107,7 +107,7 @@ const DropDownStyle = styled.div`
     }
     button {
         display: inline-block;
-        width: 50px;
+        width: 100px;
         background-color: ${globalStyle.darkgray};
         color: ${props => props.bgColor};
     }
