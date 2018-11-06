@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { globalStyle } from '../globalStyle';
 import DropDownMenu from './DropDownMenu';
+const image =  require('../static/debut_dark.png')
+
 
 const items = ["row", "column", "row-reverse"]
 
@@ -41,10 +43,12 @@ const FlexDirectionChangeStyle = styled.div`
         color: ${globalStyle.mainColor};
         font-family: ${globalStyle.titleFont};
     }
+    // background-image: url(${image})
+    border-bottom: 1px solid ${globalStyle.mainColor};
     z-index: 100;
     width: 100%;
-    background-color: ${globalStyle.lightgray};
-    color: ${globalStyle.highlight2}
+    background-color: white;
+    color: ${globalStyle.mainColor}
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;

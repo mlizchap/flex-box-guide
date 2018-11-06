@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { globalStyle } from '../globalStyle';
+const image2 =  require('../static/dust_scratches.png')
+
 
 class Header extends Component {
     constructor(props) {
@@ -21,10 +23,13 @@ class Header extends Component {
 export default Header;
 
 const HeaderStyle = styled.div`
+    // background-image: url(${image2});
+    padding: 30px;
+    margin: 0;
     text-align: center;
     font-size: 22pt;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    // margin-top: 20px;
+    // margin-bottom: 20px;
     color: #77797a;
     .flexText {
         letter-spacing: .1rem;

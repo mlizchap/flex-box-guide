@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import FlexDisplayContainer from './FlexDisplayContainer';
 import ItemInfoCardContainer from './ItemInfoCardContainer';
 import { globalStyle } from '../../globalStyle';
+const img =  require('../../static/BG.jpg')
 
 const data = {
     defaultValues: {
@@ -147,10 +148,12 @@ const ChildPropertiesSectionStyle = styled.div`
         text-align: center;
         color: ${globalStyle.lightblue};
         font-family: ${globalStyle.titleFont}
+        // background-image: url(${img})
     }
     .section {
+        border: 2px solid #3d424c;
         margin-top: 20px;
         padding: 20px;
-        background-color: ${globalStyle.mainColor}
+        background-color: #424247;
     }
 `
