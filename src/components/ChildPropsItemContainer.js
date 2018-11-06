@@ -11,6 +11,7 @@ class ChildPropsItemContainer extends Component {
         return (
             <ChildPropsItemContainerStyle {...this.props}>
                 {this.props.flexBoxDataItems.map(item => {
+                    {console.log("C", this.props.flexShrink[`${item}`])}
                     return (
                         <ChildPropsItem 
                             key={item} 

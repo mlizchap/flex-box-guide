@@ -9,17 +9,16 @@ class ChildPropsContainer extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            currentProp: "",
-            flexGrow: { a: 1, b: 1, c: 1},
+            flexGrow: { a: 1, b: 2, c: 1},
             flexShrink: { a: 1, b: 2, c: 1},
         };
     }
-    updateFlexGrow = (currentLetter, selectedNumber) => {
-        let currentProp = this.state.currentProp
-        this.setState(
-            { [currentProp]: {...this.state[`${currentProp}`], [currentLetter]: selectedNumber}},
-            () => console.log(this.state)
-        )
+    updateNumberSelection = (numberSelected, currentProperty, letter) => {
+        console.log("SHR", this.state.flexShrink)
+            this.setState(
+                { [currentProperty]: {...this.state[`${currentProperty}`], [`${letter}`]: Number(numberSelected)} },
+                () => console.log(this.state)
+            )        
     }
     render() {
         return (
@@ -32,20 +31,19 @@ class ChildPropsContainer extends Component {
                                 return (
                                     <ChildPropsDropDown 
                                         key={item} 
-                                        //flexGrow={this.state.flexGrow} 
-                                        //flexShrink={this.state.flexShrink}
                                         letter={item} 
                                         setCurrent={() => this.setState({ currentProp: childProp.camelCaseTitle})}
-                                        handleSelectNumber = {this.updateFlexGrow} 
+                                        handleNumberSelection = {this.updateNumberSelection} 
                                         bgColor={globalStyle.childPropColors[`${item}`]} 
                                     />
                                 )
                             })}
                             <ChildPropsItemContainer 
-                                {...this.props}
                                 flexBoxDataItems={childProp.items} 
-                                flexGrow={(childProp.title === "flex-grow") ? this.state.flexGrow : { a: 1, b: 1, c: 1}} 
-                                flexShrink={(childProp.title === "flex-shrink") ? this.state.flexShrink : { a: 1, b: 1, c: 1}} 
+                                flexShrink={this.state.flexShrink}
+                                flexGrow={(childProp.title === "flex-grow") ? this.state.flexGrow : { a: 1, b: 2, c: 1}} 
+                                {...this.props}
+
                                 />
                         </div>
                     )

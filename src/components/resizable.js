@@ -10,7 +10,6 @@ const ResizeBox = styled.div`
         color: white;
         z-index: 2;
         display:flex;
-        //flex-direction: ${props => props.flexDirection};
         justify-content:center;
         align-items:center;
         border-radius: 10px;

@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { globalStyle } from '../globalStyle';
 
+const flexBoxData = [
+    {
+        kabobTitle: "flex-grow",
+        camelCaseTitle: "flexGrow"
+    },
+    {
+        kabobTitle: "flex-shrink",
+        camelCaseTitle: "flexShrink"
+    }
+]
+
 class ChildPropsDropDown extends Component {
     constructor(props) {
         super(props);
@@ -17,33 +28,60 @@ class ChildPropsDropDown extends Component {
             }
          };
     }
-    showContent = () => {
-        this.setState({ display: {...this.state.display, [this.state.currentProp]: "block" }}, () => console.log(this.state.display))
+    showContent = (selectedProp) => {
+        console.log(selectedProp)
+        this.setState({ 
+            currentProp: selectedProp,
+            display: (selectedProp === "flexGrow") ? { flexGrow: "block", flexShrink: "none" } :  { flexGrow: "none", flexShrink: "block" }
+        })
     }
-    hideContent = () => {
-        this.setState({ display: {...this.state.display, [this.state.currentProp]: "none" }})
+    hideContent = (selectedProp) => {
+        this.setState({ 
+            currentProp: selectedProp,
+            display: {...this.state.display, [selectedProp]: "none" }
+        })    
     }
-    setNumber = (e) => {
-        this.setState({ currentNumber: {...this.state.currentNumber, [this.state.currentProp]: e.target.innerHTML}})
+    setNumber = (e, letter) => {
+        this.setState(
+            { currentNumber: {...this.state.currentNumber, [this.state.currentProp]: e.target.innerHTML}},
+            () => this.props.handleNumberSelection(this.state.currentNumber[`${this.state.currentProp}`], this.state.currentProp, letter)
+        )
     }
 
     render() {
         return (
             <DropDownStyle bgColor={this.props.bgColor}>
                 <h3>{this.props.letter}</h3>
-
-                        <div>
-                            flex-grow:
-                            <div className="dropDownContent" onMouseEnter={() => this.showContent()} onMouseLeave={() => this.hideContent()}>
-                                <button>
-                                    {this.state.currentNumber.flexGrow} <span className="arrow">&#9660;</span>
-                                </button>
-
-                                <ContentDisplay showContent={this.state.display.flexGrow} >
-                                    { Array.from({length:5}, (_, i) => <div onClick={this.setNumber} key={i}>{i + 1}</div>) }
-                                </ContentDisplay>
+                    {flexBoxData.map(item => {
+                        return (
+                            <div key={item.camelCaseTitle}>
+                                {item.kabobTitle}
+                                <div className="dropDownContent" onMouseEnter={() => this.showContent(item.camelCaseTitle)} onMouseLeave={() => this.hideContent(item.camelCaseTitle)}>
+                                    <button>
+                                        {this.state.currentNumber[`${item.camelCaseTitle}`]} <span className="arrow">&#9660;</span>
+                                    </button>
+        
+                                    <ContentDisplay showContent={this.state.display[`${item.camelCaseTitle}`]} >
+                                        { Array.from({length:5}, (_, i) => <div onClick={(e) => this.setNumber(e, this.props.letter)} key={i}>{i + 1}</div>) }
+                                    </ContentDisplay>
+                                </div>
                             </div>
-                    </div>
+                        )
+
+                    })}
+                        
+                    {/* <div>
+                        flex-grow:
+                        <div className="dropDownContent" onMouseEnter={() => this.showContent()} onMouseLeave={() => this.hideContent()}>
+                            <button>
+                                {this.state.currentNumber.flexGrow} <span className="arrow">&#9660;</span>
+                            </button>
+
+                            <ContentDisplay showContent={this.state.display.flexGrow} >
+                                { Array.from({length:5}, (_, i) => <div onClick={this.setNumber} key={i}>{i + 1}</div>) }
+                            </ContentDisplay>
+                        </div>
+                    </div> */}
             </DropDownStyle>
         );
     }
