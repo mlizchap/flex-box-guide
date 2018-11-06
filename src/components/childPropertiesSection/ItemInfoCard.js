@@ -37,23 +37,30 @@ class ItemCardDisplay extends Component {
             currentValues: {
                 flexGrow: 1,
                 flexShrink: 1,
-                flexBasis: '30px'
+                flexBasis: '30px',
+                alignSelf: 'auto'
             }
          };
     }
     selectItem = (selectedValue, title, itemVal) => {
-        //console.log("SEL", selectedValue)
+        console.log(selectedValue, title, itemVal)
         this.setState(
             { currentValues: {...this.state.currentValues, [title]: (title === "flexBasis") ? selectedValue : parseInt(selectedValue)}}, 
             () => this.props.handleSelect(selectedValue, title, itemVal)
         )
+        this.props.handleSelect(selectedValue, title, itemVal)
     }
     renderFlexValuesDisplay = (itemVal) => {
         return this.props.flexPropInfo.map(item => {
             return (
                <div className="item" key={item.title}>
                    <span className="title">{item.title}:</span>
-                   <DropDownMenu  handleSelect={(selected) => this.selectItem(selected, item.camelCaseTitle, itemVal)} contentItems={item.content} defaultValue={item.defaultValue} width={100}/>
+                   <DropDownMenu  
+                        handleSelect={(selected) => this.selectItem(selected, item.camelCaseTitle, itemVal)} 
+                        contentItems={item.content} 
+                        defaultValue={item.defaultValue} 
+                        width={100}
+                    />
                </div>
             )
        })

@@ -7,7 +7,7 @@ import { globalStyle } from '../../globalStyle';
 
 const data = {
     items: ["a", "b", "c"],
-    flexPropInfo: [
+    growShrinkbasis: [
         {
             title: "flex-grow",
             camelCaseTitle: "flexGrow",
@@ -29,6 +29,15 @@ const data = {
             defaultValue: "auto",
             color: "yellow"
         }
+    ],
+    alignSelf: [
+        {
+            title: "align-self",
+            camelCaseTitle: "alignSelf",
+            content: ["auto", "flex-start", "flex-end", "center", "baseline", "stretch"],
+            defaultValue: "auto",
+            color: "yellow"
+        }
     ]
 }       
                 
@@ -44,12 +53,14 @@ class ChildPropertiesSection extends Component {
             currentProp: "",
             flexGrow: { a: 1, b: 1, c: 1},
             flexShrink: { a: 1, b: 1, c: 1},
-            flexBasis: {a: 'auto', b: 'auto', c: 'auto'}
+            flexBasis: {a: 'auto', b: 'auto', c: 'auto'},
+            alignSelf: {a: 'auto', b: 'auto', c: 'auto'},
         };
     }
     updateNewValue = (selectedValue, title, letter) => {
+        console.log("Sel", title)
         this.setState(
-            { [title]: {...this.state[`${title}`], [letter]: (title === "flexBasis" ? selectedValue : parseInt(selectedValue))}}, 
+            { [title]: {...this.state[`${title}`], [letter]: (title === "flexBasis" || title === "alignSelf" ? selectedValue : parseInt(selectedValue))}}, 
             () => console.log(this.state)
         )
     }
@@ -58,36 +69,43 @@ class ChildPropertiesSection extends Component {
         return (
             <ChildPropertiesSectionStyle>
                 <div style={{marginBottom: '200px'}}>
-                    {/* {data.flexPropInfo.map(property => { */}
-                        return (
-                            <div>
-                                <h1>flex-grow | flex-shrink | flex-basis</h1>
-                                <ItemInfoCardContainer 
-                                    flexPropInfo={data.flexPropInfo}
-                                    items={data.items} 
-                                    handleSelect={this.updateNewValue}
-                                />
-                                <FlexDisplayContainer 
-                                    flexBoxDataItems={data.items} 
-                                    flexShrink={this.state.flexShrink}
-                                    flexGrow={this.state.flexGrow}
-                                    flexBasis={this.state.flexBasis}
-                                    {...this.props}
-                                /> 
-                            </div>
-                        )
-                    {/* })} */}
+                    <div>
+                        <h1>flex-grow | flex-shrink | flex-basis</h1>
+                        <ItemInfoCardContainer 
+                            flexPropInfo={data.growShrinkbasis}
+                            items={data.items} 
+                            handleSelect={this.updateNewValue}
+                        />
+                        <FlexDisplayContainer 
+                            flexBoxDataItems={data.items} 
+                            flexShrink={this.state.flexShrink}
+                            flexGrow={this.state.flexGrow}
+                            flexBasis={this.state.flexBasis}
+                            alignSelf={this.state.alignSelf}
+                            {...this.props}
+                        /> 
+                    </div>
+
+
+                    <div>
+                        <h1>align-self</h1>
+                        <ItemInfoCardContainer 
+                            flexPropInfo={data.alignSelf}
+                            items={data.items} 
+                            handleSelect={this.updateNewValue}
+                        />
+                        <FlexDisplayContainer 
+                            flexBoxDataItems={data.items} 
+                            alignSelf={this.state.alignSelf}
+                            flexShrink={this.state.flexShrink}
+                            flexGrow={this.state.flexGrow}
+                            flexBasis={this.state.flexBasis}
+                            
+                            {...this.props}
+                        /> 
+                    </div>
                 </div>
-                    {/* <h1>flex-grow | flex-shrink | flex-basis</h1>
-                    <ItemInfoCardContainer  items={data.items} handleSelect={this.updateNewValue}/>
-                    <FlexDisplayContainer 
-                        flexBoxDataItems={data.items} 
-                        flexShrink={this.state.flexShrink}
-                        flexGrow={this.state.flexGrow}
-                        flexBasis={this.state.flexBasis}
-                        {...this.props}
-                    /> 
-                </div> */}
+
             </ChildPropertiesSectionStyle>
         )
     }

@@ -16,6 +16,7 @@ class FlexDisplayContainer extends Component {
                             flexGrow={this.props.flexGrow[`${item}`]} 
                             flexShrink={this.props.flexShrink[`${item}`]}
                             flexBasis={this.props.flexBasis[`${item}`]}
+                            alignSelf={this.props.alignSelf[`${item}`]}
                             letter={item} 
                             bgColor={globalStyle.childPropColors[`${item}`]}
                         />
