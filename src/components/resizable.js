@@ -6,7 +6,7 @@ const ResizeBox = styled.div`
     display: 'inline-block';
     #box {
         position: relative;
-        background-color: #7c7c7f;
+        background-color: #8d8f93;
         color: white;
         z-index: 2;
         display:flex;

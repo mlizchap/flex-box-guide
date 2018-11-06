@@ -14,7 +14,7 @@ class Header extends Component {
             <HeaderStyle>
                 <span className="flexText">Flex</span> 
                 <span className="boxText">Box</span> 
-                <span className="guideText">Guide</span>
+                {/* <span className="guideText">Guide</span> */}
             </HeaderStyle>
         );
     }

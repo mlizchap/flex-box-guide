@@ -68,7 +68,9 @@ const ContentDisplay = styled.div`
         padding: 0 20px;
     }
     .childrenPropSection {
-        background-color: rgb(226, 232, 255, .4);
-        margin: 40px;
+        border: 1px solid ${globalStyle.mainColor}
+        //background-color: #c4c4c4;
+        //background-color: rgb(226, 232, 255, .4);
+        margin: 80px;
     }
 `

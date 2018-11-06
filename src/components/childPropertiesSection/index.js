@@ -146,7 +146,7 @@ const ChildPropertiesSectionStyle = styled.div`
     font-family: ${globalStyle.mainFont}
     h1 {
         text-align: center;
-        color: ${globalStyle.lightblue};
+        color: white;
         font-family: ${globalStyle.mainFont}
         font-size: 18pt;
         letter-spacing: .1rem;

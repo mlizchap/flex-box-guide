@@ -8,9 +8,9 @@ export const globalStyle = {
     accent1: 'rgb(255, 158, 179, .3)',
     accent2: '#fffbe0',
     childPropColors: {
-        a: '#c6efff',
-        b: '#c6e5ff',
-        c: '#9ed2ff'
+        a: '#bdddfc',
+        b: '#bfd4ff',
+        c: '#91bbff',
     },
 
     mainFont: 'Raleway',
