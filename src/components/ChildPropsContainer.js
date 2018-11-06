@@ -42,6 +42,7 @@ class ChildPropsContainer extends Component {
                                 )
                             })}
                             <ChildPropsItemContainer 
+                                {...this.props}
                                 flexBoxDataItems={childProp.items} 
                                 flexGrow={(childProp.title === "flex-grow") ? this.state.flexGrow : { a: 1, b: 1, c: 1}} 
                                 flexShrink={(childProp.title === "flex-shrink") ? this.state.flexShrink : { a: 1, b: 1, c: 1}} 

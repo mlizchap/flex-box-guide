@@ -27,4 +27,5 @@ const Item = styled.div`
     flex-shrink: ${props => props.flexShrink}
     background-color: ${props => props.bgColor};
     width: 50px;
+    height: 50px;
 `

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 import ChildPropsItem from './ChildPropsItem';
 import resizable from './resizable';
@@ -8,7 +9,7 @@ import { flexBoxData } from '../static/flexBoxData';
 class ChildPropsItemContainer extends Component {
     render() {
         return (
-            <React.Fragment>
+            <ChildPropsItemContainerStyle {...this.props}>
                 {this.props.flexBoxDataItems.map(item => {
                     return (
                         <ChildPropsItem 
@@ -20,9 +21,16 @@ class ChildPropsItemContainer extends Component {
                         />
                     )
                 })}
-            </React.Fragment>
+            </ChildPropsItemContainerStyle>
         );
     }
 }
 
 export default resizable(ChildPropsItemContainer);
+
+const ChildPropsItemContainerStyle = styled.div`
+    display: flex;
+    flex-direction: ${props => props.flexDirection}
+    width: 100%;
+    height: 100%;
+`
