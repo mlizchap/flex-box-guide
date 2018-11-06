@@ -9,15 +9,15 @@ class ChildPropsContainer extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            flexGrow: { a: 1, b: 2, c: 1},
-            flexShrink: { a: 1, b: 2, c: 1},
+            flexGrow: { a: 1, b: 1, c: 1},
+            flexShrink: { a: 1, b: 1, c: 1},
         };
     }
     updateNumberSelection = (numberSelected, currentProperty, letter) => {
-        console.log("SHR", this.state.flexShrink)
+        //console.log("SHR", this.state.flexShrink)
             this.setState(
                 { [currentProperty]: {...this.state[`${currentProperty}`], [`${letter}`]: Number(numberSelected)} },
-                () => console.log(this.state)
+                () => console.log(this.state.flexShrink)
             )        
     }
     render() {
@@ -39,10 +39,12 @@ class ChildPropsContainer extends Component {
                                 )
                             })}
                             <ChildPropsItemContainer 
+                                {...this.props}
                                 flexBoxDataItems={childProp.items} 
                                 flexShrink={this.state.flexShrink}
-                                flexGrow={(childProp.title === "flex-grow") ? this.state.flexGrow : { a: 1, b: 2, c: 1}} 
-                                {...this.props}
+                                flexGrow={this.state.flexGrow}
+                                //flexGrow={(childProp.title === "flex-grow") ? this.state.flexGrow : { a: 1, b: 2, c: 1}} 
+                                
 
                                 />
                         </div>
