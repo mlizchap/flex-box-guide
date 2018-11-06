@@ -21,6 +21,8 @@ const ResizeBox = styled.div`
         right: 0;
         bottom: 0;
         z-index: 2;
+        background-color: ${globalStyle.accent2}
+        color: ${globalStyle.mainColor}
     }
 `
 export default (ChildComponent, divWidth) => {
@@ -43,8 +45,8 @@ export default (ChildComponent, divWidth) => {
             console.log(parseInt(this.boxRef.current.style.height))
             
             this.setState({
-                width: (e.clientX - this.boxRef.current.offsetLeft) + 'px',
-                height: (e.clientY - this.boxRef.current.getBoundingClientRect().top) + 'px'
+                width: (e.clientX - this.boxRef.current.offsetLeft + 10) + 'px',
+                height: (e.clientY - this.boxRef.current.getBoundingClientRect().top + 10) + 'px'
             })
         }
         stopResizing = (e) => {

@@ -5,6 +5,8 @@ export const globalStyle = {
     mediumgray: '#8c8c8c',
     lightgray: '#d1d1d1',
     highlight1: '#bcffbc',
+    accent1: '#ffe0e9',
+    accent2: '#fffbe0',
     childPropColors: {
         a: '#c6efff',
         b: '#c6e5ff',

@@ -141,7 +141,7 @@ class ChildPropertiesSection extends Component {
 export default ChildPropertiesSection;
 
 const ChildPropertiesSectionStyle = styled.div`
-    margin-top: 20px;
+    //margin-top: 20px;
     font-family: ${globalStyle.mainFont}
     h1 {
         text-align: center;
@@ -149,7 +149,7 @@ const ChildPropertiesSectionStyle = styled.div`
         font-family: ${globalStyle.titleFont}
     }
     .section {
-        margin-top: 50px;
+        margin-top: 20px;
         padding: 20px;
         background-color: ${globalStyle.mainColor}
     }
