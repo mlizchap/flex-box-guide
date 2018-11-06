@@ -18,10 +18,10 @@ class ChildPropsContainer extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={{marginBottom: '200px'}}>
                 {flexBoxData.childrenProperties.map(childProp => {
                     return (
-                        <div key={childProp}>
+                        <div key={childProp.title}>
                             <h3>{childProp.title}</h3>
                             {childProp.items.map(item => {
                                 return (
@@ -34,7 +34,7 @@ class ChildPropsContainer extends Component {
                                     />
                                 )
                             })}
-                            <ChildPropsItemContainer flexGrow={this.state.flexGrow} />
+                            <ChildPropsItemContainer flexBoxDataItems={childProp.items} flexGrow={this.state.flexGrow} />
                         </div>
                     )
                 })}
