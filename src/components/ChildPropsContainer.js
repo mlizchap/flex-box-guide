@@ -3,16 +3,14 @@ import React, { Component } from 'react';
 import ChildPropsDropDown from './ChildPropsDropDown';
 import { globalStyle } from '../globalStyle';
 import ChildPropsItemContainer from './ChildPropsItemContainer';
+import { flexBoxData } from '../static/flexBoxData';
 
 class ChildPropsContainer extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            flexGrow: {
-                a: 1,
-                b: 1, 
-                c: 1
-            }
+            flexGrow: { a: 1, b: 1, c: 1},
+            flexShrink: { a: 1, b: 1, c: 1},
         };
     }
     updateFlexGrow = (currentLetter, selectedNumber) => {
@@ -21,13 +19,25 @@ class ChildPropsContainer extends Component {
     render() {
         return (
             <div>
-                <h3>flex-grow</h3>
-                <div>
-                    <ChildPropsDropDown flexGrow={this.state.flexGrow} letter="a" handleSelectNumber={this.updateFlexGrow} bgColor={globalStyle.highlighta} />
-                    <ChildPropsDropDown flexGrow={this.state.flexGrow}  letter="b" handleSelectNumber={this.updateFlexGrow} bgColor={globalStyle.highlightb} />
-                    <ChildPropsDropDown flexGrow={this.state.flexGrow}  letter="c" handleSelectNumber={this.updateFlexGrow} bgColor={globalStyle.highlightc} />            
-                </div>
-                <ChildPropsItemContainer flexGrow={this.state.flexGrow} />
+                {flexBoxData.childrenProperties.map(childProp => {
+                    return (
+                        <div key={childProp}>
+                            <h3>{childProp.title}</h3>
+                            {childProp.items.map(item => {
+                                return (
+                                    <ChildPropsDropDown 
+                                        key={item} 
+                                        flexGrow={this.state.flexGrow} 
+                                        letter={item} 
+                                        handleSelectNumber={this.updateFlexGrow} 
+                                        bgColor={globalStyle.childPropColors[`${item}`]} 
+                                    />
+                                )
+                            })}
+                            <ChildPropsItemContainer flexGrow={this.state.flexGrow} />
+                        </div>
+                    )
+                })}
             </div>
         );
     }

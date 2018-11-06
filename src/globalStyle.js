@@ -4,7 +4,9 @@ export const globalStyle = {
     mediumgray: '#8c8c8c',
     lightgray: '#d1d1d1',
     highlight1: '#bcffbc',
-    highlighta: '#c6efff',
-    highlightb: '#c6e5ff',
-    highlightc: '#9ed2ff'
+    childPropColors: {
+        a: '#c6efff',
+        b: '#c6e5ff',
+        c: '#9ed2ff'
+    }
 }
