@@ -44,10 +44,10 @@ class ItemCardDisplay extends Component {
     }
     selectItem = (selectedValue, title, itemVal) => {
         console.log(selectedValue, title, itemVal)
-        this.setState(
-            { currentValues: {...this.state.currentValues, [title]: (title === "flexBasis") ? selectedValue : parseInt(selectedValue)}}, 
-            () => this.props.handleSelect(selectedValue, title, itemVal)
-        )
+        // this.setState(
+        //     { currentValues: {...this.state.currentValues, [title]: (title === "flexBasis") ? selectedValue : parseInt(selectedValue)}}, 
+        //     () => this.props.handleSelect(selectedValue, title, itemVal)
+        // )
         this.props.handleSelect(selectedValue, title, itemVal)
     }
     renderFlexValuesDisplay = (itemVal) => {
@@ -95,7 +95,7 @@ const ItemCardStyle = styled.div`
     color: ${globalStyle.mainColor}
     .itemCard {
         display: inline-block;
-        width: 200px;
+        width: 100px;
         margin: 20px 0;
         padding: 20px;
         background-color: ${props => props.bgColor};

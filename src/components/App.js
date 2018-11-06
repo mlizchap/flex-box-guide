@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import FlexDirectionChange from './FlexDirectionChange';
 import ChildPropertiesSection from './childPropertiesSection';
 import { globalStyle } from '../globalStyle';
+import Header from './Header';
 
 const items = ["one", "two", "three"]
 
@@ -22,7 +23,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                flex box guide
+                <Header />
                 <FlexDirectionChange handleChange={this.changeDirection} />
                 <ContentDisplay>
                     <div class="childrenPropSection">

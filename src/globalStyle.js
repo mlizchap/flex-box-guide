@@ -15,4 +15,10 @@ export const globalStyle = {
 
     mainFont: 'Raleway',
     titleFont: 'Cabin Sketch',
+    headerFont1: 'Henny Penny',
+    headerFont2: 'Ranga',
+    headerFont3: 'Yellowtail',
+    headerFont4: 'Homemade Apple',
+    headerFont5: 'Cousine',
+    headerFont6: 'Rye'
 }
