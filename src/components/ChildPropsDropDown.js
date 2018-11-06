@@ -59,6 +59,7 @@ const DropDownStyle = styled.div`
         width: 50px;
         margin-right: auto;
         margin-left: auto;
+        z-index: 1;
     }
     .arrow {
         float: right

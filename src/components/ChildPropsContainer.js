@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ChildPropsDropDown from './ChildPropsDropDown';
 import { globalStyle } from '../globalStyle';
+import ChildPropsItemContainer from './ChildPropsItemContainer';
 
 class ChildPropsContainer extends Component {
     constructor(props) {
@@ -14,13 +15,19 @@ class ChildPropsContainer extends Component {
             }
         };
     }
-    updateFlexGrow = (letter, number) => {
-        console.log(letter, number)
+    updateFlexGrow = (currentLetter, selectedNumber) => {
+        this.setState({ flexGrow: {...this.state.flexGrow, [currentLetter]: selectedNumber}})
     }
     render() {
         return (
             <div>
-                <ChildPropsDropDown letter="a" handleSelectNumber={this.updateFlexGrow} bgColor={globalStyle.highlighta} />
+                <h3>flex-grow</h3>
+                <div>
+                    <ChildPropsDropDown flexGrow={this.state.flexGrow} letter="a" handleSelectNumber={this.updateFlexGrow} bgColor={globalStyle.highlighta} />
+                    <ChildPropsDropDown flexGrow={this.state.flexGrow}  letter="b" handleSelectNumber={this.updateFlexGrow} bgColor={globalStyle.highlightb} />
+                    <ChildPropsDropDown flexGrow={this.state.flexGrow}  letter="c" handleSelectNumber={this.updateFlexGrow} bgColor={globalStyle.highlightc} />            
+                </div>
+                <ChildPropsItemContainer flexGrow={this.state.flexGrow} />
             </div>
         );
     }
