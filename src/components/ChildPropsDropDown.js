@@ -10,6 +10,10 @@ const flexBoxData = [
     {
         kabobTitle: "flex-shrink",
         camelCaseTitle: "flexShrink"
+    },
+    {
+        kabobTitle: "flex-basis",
+        camelCaseTitle: "flexBasis"
     }
 ]
 
@@ -20,11 +24,13 @@ class ChildPropsDropDown extends Component {
             currentProp: "flexGrow",
             display: {
                 flexGrow: "none",
-                flexShrink: "none"
+                flexShrink: "none",
+                flexBasis: "none"
             },
             currentNumber: {
                 flexGrow: 1,
-                flexShrink: 1
+                flexShrink: 1,
+                flexBasis: 1
             }
          };
     }
@@ -32,8 +38,13 @@ class ChildPropsDropDown extends Component {
         console.log(selectedProp)
         this.setState({ 
             currentProp: selectedProp,
-            display: (selectedProp === "flexGrow") ? { flexGrow: "block", flexShrink: "none" } :  { flexGrow: "none", flexShrink: "block" }
-        })
+            display: {
+                flexGrow: "none",
+                flexShrink: "none",
+                flexBasis: "none"
+            }
+            //display: (selectedProp === "flexGrow") ? { flexGrow: "block", flexShrink: "none" } :  { flexGrow: "none", flexShrink: "block" }
+        }, () => this.setState({ display: {...this.state.display, [selectedProp]: "block"}}))
     }
     hideContent = (selectedProp) => {
         this.setState({ 
@@ -54,8 +65,8 @@ class ChildPropsDropDown extends Component {
                 <h3>{this.props.letter}</h3>
                     {flexBoxData.map(item => {
                         return (
-                            <div key={item.camelCaseTitle}>
-                                {item.kabobTitle}
+                            <div key={item.camelCaseTitle} className="numberDisplay">
+                                <span className="title">{item.kabobTitle}</span>
                                 <div className="dropDownContent" onMouseEnter={() => this.showContent(item.camelCaseTitle)} onMouseLeave={() => this.hideContent(item.camelCaseTitle)}>
                                     <button>
                                         {this.state.currentNumber[`${item.camelCaseTitle}`]} <span className="arrow">&#9660;</span>
@@ -67,21 +78,7 @@ class ChildPropsDropDown extends Component {
                                 </div>
                             </div>
                         )
-
                     })}
-                        
-                    {/* <div>
-                        flex-grow:
-                        <div className="dropDownContent" onMouseEnter={() => this.showContent()} onMouseLeave={() => this.hideContent()}>
-                            <button>
-                                {this.state.currentNumber.flexGrow} <span className="arrow">&#9660;</span>
-                            </button>
-
-                            <ContentDisplay showContent={this.state.display.flexGrow} >
-                                { Array.from({length:5}, (_, i) => <div onClick={this.setNumber} key={i}>{i + 1}</div>) }
-                            </ContentDisplay>
-                        </div>
-                    </div> */}
             </DropDownStyle>
         );
     }
@@ -98,6 +95,16 @@ const DropDownStyle = styled.div`
     display: inline-block;
     margin: 20px;
     border-radius: 2px;
+    .numberDisplay {
+        // background-color: yellow;
+        margin-top: 10px;
+        text-align: left:
+    }
+    .title {
+        display: inline-block;
+        // background-color: orange;
+        width: 100px;
+    }
     button {
         display: inline-block;
         width: 50px;
