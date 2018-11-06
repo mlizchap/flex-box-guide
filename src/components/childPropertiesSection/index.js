@@ -59,11 +59,12 @@ class ChildPropertiesSection extends Component {
         super(props);
         this.state = { 
             currentProp: "",
-            flexGrow: { a: 1, b: 1, c: 1},
-            flexShrink: { a: 1, b: 1, c: 1},
-            flexBasis: {a: 'auto', b: 'auto', c: 'auto'},
-            alignSelf: {a: 'auto', b: 'auto', c: 'auto'},
-            order: {a: 1, b: 1, c: 1}
+                flexGrow: { a: 1, b: 1, c: 1},
+                flexShrink: { a: 1, b: 1, c: 1},
+                flexBasis: {a: 'auto', b: 'auto', c: 'auto'},
+                alignSelf: {a: 'auto', b: 'auto', c: 'auto'},
+                order: {a: 1, b: 1, c: 1}
+
         };
     }
     updateNewValue = (selectedValue, title, letter) => {
@@ -91,7 +92,7 @@ class ChildPropertiesSection extends Component {
                             flexGrow={this.state.flexGrow}
                             flexBasis={this.state.flexBasis}
                             alignSelf={this.state.alignSelf}
-                            order={this.state.order}
+                            order={{a: 1, b: 1, c:1}}
                             {...this.props}
                         /> 
                     </div>

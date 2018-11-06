@@ -38,7 +38,7 @@ class ItemInfoCardContainer extends Component {
         return (
             <ItemCardContainerStyle>
                 { this.props.items.map(item => {
-                    return <ItemInfoCard key={item} item={item} flexPropInfo={data.flexPropInfo} {...this.props}/>
+                    return <ItemInfoCard key={item} item={item} {...this.props}/>
                 }) }
             </ItemCardContainerStyle>
         )
