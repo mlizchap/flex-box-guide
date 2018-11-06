@@ -6,6 +6,13 @@ import ItemInfoCardContainer from './ItemInfoCardContainer';
 import { globalStyle } from '../../globalStyle';
 
 const data = {
+    defaultValues: {
+        flexShrink: {a: 1, b: 1, c: 1},
+        flexGrow: {a: 1, b: 1, c: 1},
+        flexBasis: {a: "auto", b: "auto", c: "auto"},
+        alignSelf: {a: "auto", b: "auto", c: "auto"},
+        order: {a: 1, b: 1, c:1}
+    },
     items: ["a", "b", "c"],
     growShrinkbasis: [
         {
@@ -75,7 +82,6 @@ class ChildPropertiesSection extends Component {
         )
     }
     render() {
-        // { console.log(data.properties[0]) }
         return (
             <ChildPropertiesSectionStyle>
                 <div style={{marginBottom: '200px'}}>
@@ -88,11 +94,10 @@ class ChildPropertiesSection extends Component {
                         />
                         <FlexDisplayContainer 
                             flexBoxDataItems={data.items} 
+                            {...data.defaultValues}
                             flexShrink={this.state.flexShrink}
                             flexGrow={this.state.flexGrow}
                             flexBasis={this.state.flexBasis}
-                            alignSelf={this.state.alignSelf}
-                            order={{a: 1, b: 1, c:1}}
                             {...this.props}
                         /> 
                     </div>
@@ -106,11 +111,8 @@ class ChildPropertiesSection extends Component {
                         />
                         <FlexDisplayContainer 
                             flexBoxDataItems={data.items} 
+                            {...data.defaultValues}
                             alignSelf={this.state.alignSelf}
-                            flexShrink={this.state.flexShrink}
-                            flexGrow={this.state.flexGrow}
-                            flexBasis={this.state.flexBasis}
-                            order={{a: 1, b: 1, c:1}}
                             {...this.props}
                         /> 
                     </div>
@@ -124,10 +126,7 @@ class ChildPropertiesSection extends Component {
                         />
                         <FlexDisplayContainer 
                             flexBoxDataItems={data.items} 
-                            alignSelf={this.state.alignSelf}
-                            flexShrink={this.state.flexShrink}
-                            flexGrow={this.state.flexGrow}
-                            flexBasis={this.state.flexBasis}
+                            {...data.defaultValues}
                             order={this.state.order}
                             {...this.props}
                         /> 
