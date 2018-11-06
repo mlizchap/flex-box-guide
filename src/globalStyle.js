@@ -1,5 +1,6 @@
 export const globalStyle = {
     mainColor: '#576987',
+    lightblue: `#eff2f7`,
     darkgray: '#535559',
     mediumgray: '#8c8c8c',
     lightgray: '#d1d1d1',

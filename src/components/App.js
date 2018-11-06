@@ -25,7 +25,10 @@ class App extends Component {
                 flex box guide
                 <FlexDirectionChange handleChange={this.changeDirection} />
                 <ContentDisplay>
-                    <ChildPropertiesSection flexDirection={this.state.direction}/>
+                    <div class="childrenPropSection">
+                        <h1>Child Properties</h1>
+                        <ChildPropertiesSection flexDirection={this.state.direction}/>
+                    </div>
                 </ContentDisplay>
             </div>
         );
@@ -39,4 +42,9 @@ const ContentDisplay = styled.div`
     width: 80%;
     margin-right: auto;
     margin-left: auto;
+    .childrenPropSection {
+        background-color: ${globalStyle.lightblue};
+        padding: 20px;
+        margin: 20px;
+    }
 `

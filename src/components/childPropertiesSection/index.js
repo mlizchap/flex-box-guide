@@ -85,7 +85,7 @@ class ChildPropertiesSection extends Component {
         return (
             <ChildPropertiesSectionStyle>
                 <div style={{marginBottom: '200px'}}>
-                    <div>
+                    <div className="section">
                         <h1>flex-grow | flex-shrink | flex-basis</h1>
                         <ItemInfoCardContainer 
                             flexPropInfo={data.growShrinkbasis}
@@ -102,7 +102,7 @@ class ChildPropertiesSection extends Component {
                         /> 
                     </div>
 
-                    <div>
+                    <div className="section">
                         <h1>align-self</h1>
                         <ItemInfoCardContainer 
                             flexPropInfo={data.alignSelf}
@@ -117,7 +117,7 @@ class ChildPropertiesSection extends Component {
                         /> 
                     </div>
 
-                    <div>
+                    <div className="section">
                         <h1>order</h1>
                         <ItemInfoCardContainer 
                             flexPropInfo={data.order}
@@ -145,7 +145,12 @@ const ChildPropertiesSectionStyle = styled.div`
     font-family: ${globalStyle.mainFont}
     h1 {
         text-align: center;
-        color: ${globalStyle.mainColor};
+        color: ${globalStyle.lightblue};
         font-family: ${globalStyle.titleFont}
+    }
+    .section {
+        margin-top: 50px;
+        padding: 20px;
+        background-color: ${globalStyle.mainColor}
     }
 `
