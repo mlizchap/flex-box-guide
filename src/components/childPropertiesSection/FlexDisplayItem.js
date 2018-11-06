@@ -20,6 +20,7 @@ const Item = styled.div`
     flex-shrink: ${props => props.flexShrink};
     flex-basis: ${props => props.flexBasis};
     align-self: ${props => props.alignSelf};
+    order: ${props => props.order}
     background-color: ${props => props.bgColor};
     width: 50px;
     height: 50px;

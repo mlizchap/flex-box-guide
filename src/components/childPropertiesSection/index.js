@@ -38,6 +38,14 @@ const data = {
             defaultValue: "auto",
             color: "yellow"
         }
+    ],
+    order: [
+        {
+            title: "order",
+            camelCaseTitle: "order",
+            content: [1, 2, 3],
+            defaultValue: 1,
+        }
     ]
 }       
                 
@@ -55,6 +63,7 @@ class ChildPropertiesSection extends Component {
             flexShrink: { a: 1, b: 1, c: 1},
             flexBasis: {a: 'auto', b: 'auto', c: 'auto'},
             alignSelf: {a: 'auto', b: 'auto', c: 'auto'},
+            order: {a: 1, b: 1, c: 1}
         };
     }
     updateNewValue = (selectedValue, title, letter) => {
@@ -82,10 +91,10 @@ class ChildPropertiesSection extends Component {
                             flexGrow={this.state.flexGrow}
                             flexBasis={this.state.flexBasis}
                             alignSelf={this.state.alignSelf}
+                            order={this.state.order}
                             {...this.props}
                         /> 
                     </div>
-
 
                     <div>
                         <h1>align-self</h1>
@@ -100,7 +109,25 @@ class ChildPropertiesSection extends Component {
                             flexShrink={this.state.flexShrink}
                             flexGrow={this.state.flexGrow}
                             flexBasis={this.state.flexBasis}
-                            
+                            order={{a: 1, b: 1, c:1}}
+                            {...this.props}
+                        /> 
+                    </div>
+
+                    <div>
+                        <h1>order</h1>
+                        <ItemInfoCardContainer 
+                            flexPropInfo={data.order}
+                            items={data.items} 
+                            handleSelect={this.updateNewValue}
+                        />
+                        <FlexDisplayContainer 
+                            flexBoxDataItems={data.items} 
+                            alignSelf={this.state.alignSelf}
+                            flexShrink={this.state.flexShrink}
+                            flexGrow={this.state.flexGrow}
+                            flexBasis={this.state.flexBasis}
+                            order={this.state.order}
                             {...this.props}
                         /> 
                     </div>
