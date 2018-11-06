@@ -147,8 +147,9 @@ const ChildPropertiesSectionStyle = styled.div`
     h1 {
         text-align: center;
         color: ${globalStyle.lightblue};
-        font-family: ${globalStyle.titleFont}
-        // background-image: url(${img})
+        font-family: ${globalStyle.mainFont}
+        font-size: 18pt;
+        letter-spacing: .1rem;
     }
     .section {
         border: 2px solid #3d424c;
