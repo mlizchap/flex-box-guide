@@ -25,7 +25,7 @@ const data = {
             title: "flex-basis",
             camelCaseTitle: "flexBasis",
             content: ["20%", "33%", "40%", "60%", "auto", "content"],
-            defaultValue: "33%"
+            defaultValue: "auto"
         }
     ]
     

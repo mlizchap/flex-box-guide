@@ -20,6 +20,7 @@ class FlexDirectionChange extends Component {
 export default FlexDirectionChange;
 
 const FlexDirectionChangeStyle = styled.div`
+    z-index: 100;
     width: 100%;
     background-color: ${globalStyle.mediumgray};
     color: ${globalStyle.highlight2}

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
-import ChildPropsContainer from './ChildPropsContainer'
 import FlexDirectionChange from './FlexDirectionChange';
-import DropDownMenu from './DropDownMenu';
-import ChildPropItemInfoDisplay from './ChildPropItemInfoDisplay';
+import ChildPropMainContainer from './childPropertiesSection/MainContainer';
 
 const items = ["one", "two", "three"]
 
@@ -22,10 +20,9 @@ class App extends Component {
     render() {
         return (
             <div>
-                {/* <DropDownMenu defaultValue="test" contentItems={items} /> */}
                 flex box guide
                 <FlexDirectionChange handleChange={this.changeDirection} />
-                <ChildPropsContainer flexDirection={this.state.direction} />
+                <ChildPropMainContainer flexDirection={this.state.direction}/>
             </div>
         );
     }
