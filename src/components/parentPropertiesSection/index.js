@@ -10,9 +10,9 @@ import DropDownMenu from '../DropDownMenu';
 
 const parentProperties = {
     defaultValues: {
-        justifyContent: "flex-end",
+        justifyContent: "flex-start",
         alignItems: "flex-start",
-        flexWrap: "flex-wrap"
+        flexWrap: "flex-wrap",
     },
     detail: [
         {
@@ -53,10 +53,10 @@ class ParentPropertiesSection extends Component {
                         <h3 className="mainHeader">PARENT PROPERTIES</h3>
                     </MainHeaderStyle>
 
-                    <div className="section">
                         {parentProperties.detail.map(property => {
                             return (
-                                <div key={property.camelCaseTitle}>
+                                <div className="section" key={property.camelCaseTitle}>
+
                                     <h1>{property.kabobCaseTitle}</h1>
                                     <DropDownMenuSectionStyle>
                                         <DropDownMenu 
@@ -67,13 +67,13 @@ class ParentPropertiesSection extends Component {
                                         />
                                     </DropDownMenuSectionStyle>
                                     <FlexDisplayContainer 
-                                        flexProperties={this.state}
+                                        flexProperties={{...parentProperties.defaultValues, [`${property.camelCaseTitle}`]: this.state[`${property.camelCaseTitle}`]}}
                                         {...this.props}
                                     /> 
                                 </div>
+
                             )
                         })}
-                    </div>
                 </SectionStyle>
                                     
                 

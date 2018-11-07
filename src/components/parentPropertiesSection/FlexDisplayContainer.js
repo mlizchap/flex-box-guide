@@ -64,7 +64,8 @@ const ItemContainerStyle = styled.div`
 const ItemListStyle = styled.div`
     display: flex;
     justify-content: ${props => props.flexProperties.justifyContent};
-    align-items: flex-start;
+    align-items: ${props => props.flexProperties.alignItems};
+
     width: 100%;
     flex-direction: ${props => props.flexDirection};
 `
