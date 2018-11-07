@@ -54,7 +54,7 @@ class ParentPropertiesSection extends Component {
             justifyContent: "flex-start",
             alignItems: "flex-start",
             alignContent: "flex-start",
-            flexWrap: "no-wrap"
+            flexWrap: "nowrap"
          };
     }
     selectValue = (propertyValue, propertyName) => {
@@ -73,7 +73,6 @@ class ParentPropertiesSection extends Component {
                         {parentProperties.detail.map(property => {
                             return (
                                 <div className="section" key={property.camelCaseTitle}>
-
                                     <h1>{property.kabobCaseTitle}</h1>
                                     <DropDownMenuSectionStyle>
                                         <DropDownMenu 

@@ -6,6 +6,18 @@ import resizable from '../resizable';
 import { globalStyle } from '../../globalStyle';
 
 class FlexDisplayContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            heights: []
+        }
+    }
+    componentDidMount = () => {
+        this.setState({ heights: Array.from({length: 10}, (_, i) => this.getRandomValue(25, 60)) })
+    }
+    getRandomValue = (min,max) => {
+        return Math.floor(Math.random()*(max-min+1)+min);
+    }
     render() {
         return (
             <React.Fragment>
@@ -29,7 +41,7 @@ class FlexDisplayContainer extends Component {
 
                 <InnerItemContainerStyle {...this.props}>
                 {/* <Items {...this.props}> */}
-                    {this.props.flexBoxDataItems.map(item => {
+                    {this.props.flexBoxDataItems.map((item,index) => {
                         return (
                             <FlexDisplayItem 
                                 key={item} 
@@ -41,6 +53,7 @@ class FlexDisplayContainer extends Component {
                                 letter={item} 
                                 bgColor={globalStyle.childPropColors[`${item}`]}
                                 flexDisplay={this.props.flexDirection}
+                                height={this.state.heights[index]}
                             />
                         )
                     })}
@@ -56,16 +69,15 @@ export default resizable(FlexDisplayContainer);
 
 const OuterItemContainerStyle = styled.div`
     display: flex;
-
     width: 100%;
-    // height: 320px;
     height: 100%;
     overflow: scroll;
     background-color: ${globalStyle.bgColorLight};
 `
 const InnerItemContainerStyle = styled.div`
     display: flex;
-    // flex-wrap: nowrap;
+    width: 100%;
+    // flex-wrap: wrap;
     flex-direction: ${props => props.flexDirection};
 `
 

@@ -30,12 +30,11 @@ const Item = styled.div`
     font-family: ${globalStyle.titleFont};
 
     border-radius: 2px;
-    border-radius: 2px;
-    padding-right: 50px;
-    padding-left: 50px;
+    padding: 0 50px;
     font-size: 14pt;
     text-align: center;
     margin: 5px;
-    height: 30px;
-    width: 30px;
+    height: ${props => props.height}px;
+    line-height: ${props => props.height}px;
+    
 `
