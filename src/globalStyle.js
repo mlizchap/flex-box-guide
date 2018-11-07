@@ -1,6 +1,7 @@
 export const globalStyle = {
     dark: '#3a3a3a',
     white: `#fcfcfc`,
+    bgColorLight:  `#bcbcbc`,
 
 
     mainColor: '#5a6272',

@@ -22,10 +22,10 @@ const Item = styled.div`
     align-self: ${props => props.alignSelf};
     order: ${props => props.order}
     background-color: ${props => props.bgColor};
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    //margin: 10px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 20px 20px;
     border-radius: 2px;
     font-size: 14pt;
     text-align: center;

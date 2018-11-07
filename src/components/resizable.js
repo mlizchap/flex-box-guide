@@ -6,10 +6,10 @@ const ResizeBox = styled.div`
     display: 'inline-block';
     #box {
         position: relative;
-        background-color: #8d8f93;
-        color: white;
         z-index: 2;
         display:flex;
+        flex-direction: column;
+        // background-color: purple;
         justify-content:center;
         align-items:center;
     }

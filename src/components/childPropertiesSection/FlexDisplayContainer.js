@@ -8,7 +8,14 @@ import { globalStyle } from '../../globalStyle';
 class FlexDisplayContainer extends Component {
     render() {
         return (
-            <FlexDisplayContainerStyle {...this.props}>
+            <React.Fragment>
+            <YAxis>
+                <div class="yAxisContent">
+                    Y AXIS
+                </div>
+            </YAxis>
+
+            <ItemContainerStyle {...this.props}>
                 {this.props.flexBoxDataItems.map(item => {
                     return (
                         <FlexDisplayItem 
@@ -23,17 +30,28 @@ class FlexDisplayContainer extends Component {
                         />
                     )
                 })}
-            </FlexDisplayContainerStyle>
+            </ItemContainerStyle>
+            </React.Fragment>
         );
     }
 }
 
 export default resizable(FlexDisplayContainer);
 
-const FlexDisplayContainerStyle = styled.div`
+const ItemContainerStyle = styled.div`
     display: flex;
     flex-direction: ${props => props.flexDirection};
     width: 100%;
     height: 100%;
     overflow: scroll;
+    background-color: ${globalStyle.bgColorLight};
+
+`
+
+const YAxis = styled.div`
+    width: 100%;
+
+    .yAxisContent {
+        background-color: purple;
+    }
 `
