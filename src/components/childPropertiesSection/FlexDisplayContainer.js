@@ -16,6 +16,11 @@ class FlexDisplayContainer extends Component {
             </YAxis>
 
             <ItemContainerStyle {...this.props}>
+                <XAxis>
+                    <div class="yAxisContent">
+                        Y AXIS
+                    </div>
+                </XAxis>
                 {this.props.flexBoxDataItems.map(item => {
                     return (
                         <FlexDisplayItem 
@@ -31,6 +36,7 @@ class FlexDisplayContainer extends Component {
                     )
                 })}
             </ItemContainerStyle>
+            
             </React.Fragment>
         );
     }
@@ -53,5 +59,14 @@ const YAxis = styled.div`
 
     .yAxisContent {
         background-color: purple;
+    }
+`
+
+const XAxis = styled.div`
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+    .yAxisContent {
+        background-color: blue;
     }
 `
