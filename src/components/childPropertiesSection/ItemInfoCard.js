@@ -3,32 +3,32 @@ import DropDownMenu from '../DropDownMenu';
 import styled from 'styled-components';
 import { globalStyle } from '../../globalStyle'
 
-const data = {
-    items: ["a", "b", "c"],
-    flexPropInfo: [
-        {
-            title: "flex-grow",
-            camelCaseTitle: "flexGrow",
-            content: [0, 1, 2, 3, 4, 5],
-            defaultValue: 1,
-            color: "orange"
-        },
-        {
-            title: "flex-shrink",
-            camelCaseTitle: "flexShrink",
-            content: [0, 1, 2, 3, 4, 5],
-            defaultValue: 1,
-            color: "navy"
-        },
-        {
-            title: "flex-basis",
-            camelCaseTitle: "flexBasis",
-            content: ["20%", "33%", "40%", "60%", "auto", "content"],
-            defaultValue: "auto",
-            color: "yellow"
-        }
-    ]
-}
+// const data = {
+//     items: ["a", "b", "c"],
+//     flexPropInfo: [
+//         {
+//             title: "flex-grow",
+//             camelCaseTitle: "flexGrow",
+//             content: [0, 1, 2, 3, 4, 5],
+//             defaultValue: 1,
+//             color: "orange"
+//         },
+//         {
+//             title: "flex-shrink",
+//             camelCaseTitle: "flexShrink",
+//             content: [0, 1, 2, 3, 4, 5],
+//             defaultValue: 1,
+//             color: "navy"
+//         },
+//         {
+//             title: "flex-basis",
+//             camelCaseTitle: "flexBasis",
+//             content: ["20%", "33%", "40%", "60%", "auto", "content"],
+//             defaultValue: "auto",
+//             color: "yellow"
+//         }
+//     ]
+// }
 
 class ItemCardDisplay extends Component {
     constructor(props) {

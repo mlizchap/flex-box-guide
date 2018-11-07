@@ -6,8 +6,6 @@ import ChildPropertiesSection from './childPropertiesSection';
 import { globalStyle } from '../globalStyle';
 import Header from './Header';
 
-const items = ["one", "two", "three"]
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -15,18 +13,15 @@ class App extends Component {
             direction: "row"
          };
     }
-    changeDirection = () => {
-        (this.state.direction === "row") ? 
-            this.setState({ direction: "column"}) : 
-            this.setState({ direction: "row"})
-    }
     render() {
         return (
             <div>
                 <Header />
             <StyledApp>
                 
-                <FlexDirectionChange handleChange={this.changeDirection} />
+                <FlexDirectionChange 
+                    handleSelect={(selectedItem) => this.setState({direction: selectedItem})} 
+                />
                 <ContentDisplay>
                     <div className="childrenPropSection">
                     <h1 className="mainHeader">CHILD PROPERTIES</h1>
