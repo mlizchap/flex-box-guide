@@ -18,7 +18,7 @@ class FlexDisplayContainer extends Component {
             <ItemContainerStyle {...this.props}>
                 <VerticalAxis>
                     <div class="verticalAxisContent">
-                        X AXIS
+                        Y AXIS
                     </div>
                 </VerticalAxis>
 
@@ -55,7 +55,6 @@ const ItemContainerStyle = styled.div`
     background-color: ${globalStyle.bgColorLight};
 `
 const Items = styled.div`
-    background-color: yellow;
     display: flex;
     width: 100%;
     flex-direction: ${props => props.flexDirection};
@@ -63,19 +62,27 @@ const Items = styled.div`
 
 const HorizantalAxis = styled.div`
     width: 100%;
+    background-color: ${globalStyle.mainAxisBgColor};
+    color: ${globalStyle.mainAxisColor};
+    padding: 2px 0;
+    font-family: ${globalStyle.titleFont};
     .horizantalAxisContent {
-        background-color: purple;
+        text-align: center;
     }
 `
 
 const VerticalAxis = styled.div`
-    background-color: green;
+    
     display: flex;
     flex-direction: row;
-    width: 50px;
     flex-grow: content;
     height: 100%;
+    background-color: ${globalStyle.crossAxisBgColor};
+    color: ${globalStyle.crossAxisColor};
+    font-family: ${globalStyle.titleFont};
     .verticalAxisContent {
-        background-color: blue;
+        text-align: center;
+        padding-top: 5px;
+        // background-color: green;
     }
 `

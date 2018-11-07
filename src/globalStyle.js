@@ -2,7 +2,10 @@ export const globalStyle = {
     dark: '#3a3a3a',
     white: `#fcfcfc`,
     bgColorLight:  `#bcbcbc`,
-
+    mainAxisColor: `#e28c8c`,
+    mainAxisBgColor: `#efb8b8`,
+    crossAxisColor: `#ae99c4`,
+    crossAxisBgColor: `#efe5f9`,
 
     mainColor: '#5a6272',
     lightblue: `#a9c1d6`,
