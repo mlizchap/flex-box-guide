@@ -12,21 +12,38 @@ const parentProperties = {
     defaultValues: {
         justifyContent: "flex-start",
         alignItems: "flex-start",
-        flexWrap: "flex-wrap",
+        flexWrap: "wrap",
+        alignContent: "flex-start"
     },
     detail: [
         {
             camelCaseTitle: 'justifyContent',
             kabobCaseTitle: 'justify-content',
             values: ["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly"],
-            defaultValue: "flex-start"
+            defaultValue: "flex-start",
+            itemAmount: 5
         },
         {
             camelCaseTitle: 'alignItems',
             kabobCaseTitle: 'align-items',
             values: ["flex-start", "flex-end", "center", "stretch", "baseline"],
-            defaultValue: "flex-start"
-        }
+            defaultValue: "flex-start",
+            itemAmount: 5
+        },
+        {
+            camelCaseTitle: 'alignContent',
+            kabobCaseTitle: 'align-content',
+            values: ["flex-start", "flex-end", "center", "stretch", "space-between", "space-around"],
+            defaultValue: "flex-start",
+            itemAmount: 10
+        },
+        {
+            camelCaseTitle: 'flexWrap',
+            kabobCaseTitle: 'flex-wrap',
+            values: ["no-wrap", "wrap", "wrap-reverse"],
+            defaultValue: "no-wrap",
+            itemAmount: 10
+        },
     ]
 }
 
@@ -37,11 +54,11 @@ class ParentPropertiesSection extends Component {
             justifyContent: "flex-start",
             alignItems: "flex-start",
             justifyContent: "justify-content",
-            flexWrap: "flex-wrap"
+            flexWrap: "no-wrap"
          };
     }
     selectValue = (propertyValue, propertyName) => {
-        console.log(this.props.flexProperties)
+        console.log(this.state)
         this.setState({ [propertyName]: propertyValue})
     }
     render() {
@@ -67,7 +84,13 @@ class ParentPropertiesSection extends Component {
                                         />
                                     </DropDownMenuSectionStyle>
                                     <FlexDisplayContainer 
-                                        flexProperties={{...parentProperties.defaultValues, [`${property.camelCaseTitle}`]: this.state[`${property.camelCaseTitle}`]}}
+                                        flexProperties={
+                                            {
+                                                ...parentProperties.defaultValues, 
+                                                [`${property.camelCaseTitle}`]: this.state[`${property.camelCaseTitle}`]
+                                            }
+                                        }
+                                        itemAmount={property.itemAmount}
                                         {...this.props}
                                     /> 
                                 </div>

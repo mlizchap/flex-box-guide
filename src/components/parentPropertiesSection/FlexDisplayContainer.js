@@ -37,11 +37,10 @@ class FlexDisplayContainer extends Component {
                 </VerticalAxis>
                 
                 <ItemListStyle {...this.props}>
-                    <FlexDisplayItem />
-                    <FlexDisplayItem />
-                    <FlexDisplayItem />
-                    <FlexDisplayItem />
-                    <FlexDisplayItem />
+                    { Array.from({length: this.props.itemAmount}, (_, i) =>  <FlexDisplayItem key={i}/>)}
+
+                    
+
                 </ItemListStyle>
 
 
@@ -63,8 +62,12 @@ const ItemContainerStyle = styled.div`
 `
 const ItemListStyle = styled.div`
     display: flex;
+
+    // FLEX PROPERTIES
     justify-content: ${props => props.flexProperties.justifyContent};
     align-items: ${props => props.flexProperties.alignItems};
+    flex-wrap: ${props => props.flexProperties.flexWrap};
+    align-content: ${props => props.flexProperties.alignContent};
 
     width: 100%;
     flex-direction: ${props => props.flexDirection};
