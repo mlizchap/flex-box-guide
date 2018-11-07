@@ -18,23 +18,26 @@ class FlexDisplayContainer extends Component {
             <ItemContainerStyle {...this.props}>
                 <XAxis>
                     <div class="yAxisContent">
-                        Y AXIS
+                        X AXIS
                     </div>
                 </XAxis>
-                {this.props.flexBoxDataItems.map(item => {
-                    return (
-                        <FlexDisplayItem 
-                            key={item} 
-                            flexGrow={this.props.flexGrow[`${item}`]} 
-                            flexShrink={this.props.flexShrink[`${item}`]}
-                            flexBasis={this.props.flexBasis[`${item}`]}
-                            alignSelf={this.props.alignSelf[`${item}`]}
-                            order={this.props.order[`${item}`]}
-                            letter={item} 
-                            bgColor={globalStyle.childPropColors[`${item}`]}
-                        />
-                    )
-                })}
+
+                <Items {...this.props}>
+                    {this.props.flexBoxDataItems.map(item => {
+                        return (
+                            <FlexDisplayItem 
+                                key={item} 
+                                flexGrow={this.props.flexGrow[`${item}`]} 
+                                flexShrink={this.props.flexShrink[`${item}`]}
+                                flexBasis={this.props.flexBasis[`${item}`]}
+                                alignSelf={this.props.alignSelf[`${item}`]}
+                                order={this.props.order[`${item}`]}
+                                letter={item} 
+                                bgColor={globalStyle.childPropColors[`${item}`]}
+                            />
+                        )
+                    })}
+                </Items>
             </ItemContainerStyle>
             
             </React.Fragment>
@@ -46,7 +49,6 @@ export default resizable(FlexDisplayContainer);
 
 const ItemContainerStyle = styled.div`
     display: flex;
-    flex-direction: ${props => props.flexDirection};
     width: 100%;
     height: 100%;
     overflow: scroll;
@@ -54,9 +56,16 @@ const ItemContainerStyle = styled.div`
 
 `
 
+const Items = styled.div`
+    background-color: yellow;
+    display: flex;
+    // flex-direction: column;
+    width: 100%;
+    flex-direction: ${props => props.flexDirection};
+`
+
 const YAxis = styled.div`
     width: 100%;
-
     .yAxisContent {
         background-color: purple;
     }
@@ -66,6 +75,8 @@ const XAxis = styled.div`
     background-color: green;
     display: flex;
     flex-direction: row;
+    width: 50px;
+    flex-grow: content;
     .yAxisContent {
         background-color: blue;
     }
