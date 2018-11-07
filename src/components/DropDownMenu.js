@@ -72,7 +72,9 @@ const DropDownMenuStyle = styled.div`
         color: ${props => props.buttonFontColor}
         outline: none;
         border: none;
-        font-family: ${props => props.font}
+        font-family: ${props => props.font};
+        letter-spacing: ${props => props.letterSpacing};
+
     }
     .content {
         position: absolute;
@@ -119,4 +121,5 @@ DropDownMenuStyle.defaultProps = {
     font: 'arial',
     greyedOutBg: '#a5a5a5',
     greyedOutColor: '#dbdbdb',
+    letterSpacing: `.05rem`,
 }

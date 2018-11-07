@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import FlexDirectionChange from './FlexDirectionChange';
 import ChildPropertiesSection from './childPropertiesSection';
+import ParentPropertiesSection from './parentPropertiesSection';
 import { globalStyle } from '../globalStyle';
 import Header from './Header';
 
@@ -14,6 +15,7 @@ class App extends Component {
          };
     }
     render() {
+        console.log(this.state.direction)
         return (
             <div>
                 <Header />
@@ -22,6 +24,7 @@ class App extends Component {
                 />
                 <ContentDisplay>
                     <ChildPropertiesSection flexDirection={this.state.direction}/>
+                    <ParentPropertiesSection flexDirection={this.state.direction} />
                 </ContentDisplay> 
             </div>
         );

@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import FlexDisplayItem from './FlexDisplayItem';
-import resizable from '../resizable';
-import { globalStyle } from '../../globalStyle';
+// import FlexDisplayItem from './FlexDisplayItem';
+import resizable from './resizable';
+import { globalStyle } from '../globalStyle';
 
 class FlexDisplayContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            flexDir: "row"
+        }
+    }
     render() {
+        console.log("DIR", this.props.flexDirection)
+
         return (
             <React.Fragment>
             <HorizantalAxis {...this.props}>
@@ -27,7 +35,7 @@ class FlexDisplayContainer extends Component {
                     </div>
                 </VerticalAxis>
 
-                <Items {...this.props}>
+                {/* <Items {...this.props}>
                     {this.props.flexBoxDataItems.map(item => {
                         return (
                             <FlexDisplayItem 
@@ -43,7 +51,7 @@ class FlexDisplayContainer extends Component {
                             />
                         )
                     })}
-                </Items>
+                </Items> */}
             </ItemContainerStyle>
             
             </React.Fragment>
@@ -68,6 +76,7 @@ const Items = styled.div`
 
 const HorizantalAxis = styled.div`
     width: 100%;
+    // background-color: ${globalStyle.mainAxisBgColor};
     background-color: ${props => (props.flexDirection === "row" || props.flexDirection === "row-reverse") ? globalStyle.mainAxisBgColor : globalStyle.crossAxisBgColor}
     color: ${props => (props.flexDirection === "row" || props.flexDirection === "row-reverse") ? globalStyle.mainAxisColor : globalStyle.crossAxisColor}
     padding: 2px 0;
@@ -84,6 +93,8 @@ const VerticalAxis = styled.div`
     flex-direction: row;
     flex-grow: content;
     height: 100%;
+    // background-color: ${globalStyle.crossAxisBgColor};
+    // color: ${globalStyle.crossAxisColor};
     font-family: ${globalStyle.titleFont};
     .verticalAxisContent {
         text-align: center;
