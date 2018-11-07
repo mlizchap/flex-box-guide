@@ -22,8 +22,8 @@ class FlexDisplayItem extends Component {
 export default FlexDisplayItem;
 
 const ItemStyle = styled.div`
-    height: 40px;
-    line-height: 40px;
+    height: 20px;
+    line-height: 20px;
     border-radius: 2px;
     padding-right: 50px;
     padding-left: 50px;

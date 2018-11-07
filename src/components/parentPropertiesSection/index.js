@@ -26,9 +26,9 @@ class ParentPropertiesSection extends Component {
             justifyContent: "flex-start"
          };
     }
-    selectValue = (selected) => {
-        console.log(selected)
-        this.setState({ justifyContent: selected})
+    selectValue = (propertyValue, propertyName) => {
+        console.log(propertyName, propertyValue)
+        this.setState({ [propertyName]: propertyValue}, () => console.log(this.state))
     }
     render() {
         return (
@@ -42,18 +42,35 @@ class ParentPropertiesSection extends Component {
 
 
                 <div className="section">
-                        <h1>justify-content</h1>
+                        {/* <h1>justify-content</h1>
                         
                         <DropDownMenuSectionStyle>
                             <DropDownMenu 
                                 font={globalStyle.mainFont}
-                                handleSelect={this.selectValue}
+                                handleSelect={(selected) => this.selectValue(selected, data.parentProperties[0].camelCaseTitle)}
                                 contentItems={data.parentProperties[0].values}
                                 defaultValue={data.parentProperties[0].defaultValue}
                             />
                         </DropDownMenuSectionStyle>
 
-                        <FlexDisplayContainer {...this.props} justifyContent={this.state.justifyContent} />
+                        <FlexDisplayContainer {...this.props} justifyContent={this.state.justifyContent} /> */}
+
+                        {data.parentProperties.map(property => {
+                            return (
+                                <div key={property.camelCaseTitle}>
+                                    <h1>{property.kabobCaseTitle}</h1>
+                                    <DropDownMenuSectionStyle>
+                                        <DropDownMenu 
+                                            font={globalStyle.mainFont}
+                                            handleSelect={(selected) => this.selectValue(selected, property.camelCaseTitle)}
+                                            contentItems={property.values}
+                                            defaultValue={property.defaultValue}
+                                        />
+                                    </DropDownMenuSectionStyle>
+                                    <FlexDisplayContainer {...this.props} justifyContent={this.state[`${property.camelCaseTitle}`]} /> 
+                                </div>
+                            )
+                        })}
 
                     </div>
 
