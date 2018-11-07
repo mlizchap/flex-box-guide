@@ -66,6 +66,7 @@ class ItemCardDisplay extends Component {
        })
     }
     render() {
+        // console.log(this.props.flexDirection)
         return (
             <div>
                 <ItemCardStyle bgColor={globalStyle.childPropColors[`${this.props.item}`]}>

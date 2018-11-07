@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { globalStyle } from '../../globalStyle';
 
 
-class ChildPropsItem extends Component {
+class FlexDisplayItem extends Component {
     render() {
         return (
             <Item {...this.props}>
@@ -13,7 +13,7 @@ class ChildPropsItem extends Component {
     }
 }
 
-export default ChildPropsItem;
+export default FlexDisplayItem;
 
 const Item = styled.div`
     flex-grow: ${props => props.flexGrow};
@@ -22,12 +22,11 @@ const Item = styled.div`
     align-self: ${props => props.alignSelf};
     order: ${props => props.order}
     background-color: ${props => props.bgColor};
-    width: 40px;
     height: 40px;
     line-height: 40px;
-    margin: 20px 20px;
     border-radius: 2px;
     font-size: 14pt;
     text-align: center;
     color: ${globalStyle.mainColor}
+    font-family: ${globalStyle.titleFont}
 `

@@ -39,6 +39,7 @@ class FlexDisplayContainer extends Component {
                                 order={this.props.order[`${item}`]}
                                 letter={item} 
                                 bgColor={globalStyle.childPropColors[`${item}`]}
+                                flexDisplay={this.props.flexDirection}
                             />
                         )
                     })}

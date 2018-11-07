@@ -31,7 +31,7 @@ export default (ChildComponent, divWidth) => {
             super(props);
             this.state = {
                 width: '100%',
-                height: '100px',
+                height: '220px',
             }
             this.boxRef = React.createRef();
             this.childCompRef = React.createRef();
@@ -40,14 +40,21 @@ export default (ChildComponent, divWidth) => {
             window.addEventListener('mousemove', this.startResizing, false);
             window.addEventListener('mouseup', this.stopResizing, false);
         }
-        startResizing = (e) => {
-            console.log(e.clientY)
-            console.log(parseInt(this.boxRef.current.style.height))
+        startResizing = (e) => {  
+            let maxPos = document.body.clientWidth - this.boxRef.current.offsetLeft;      
+
+            console.log("client", e.clientY)
             
-            this.setState({
-                width: (e.clientX - this.boxRef.current.offsetLeft + 10) + 'px',
-                height: (e.clientY - this.boxRef.current.getBoundingClientRect().top + 10) + 'px'
-            })
+            if (e.clientX < maxPos && e.clientX > 300) {
+                this.setState({
+                    width: (e.clientX - this.boxRef.current.offsetLeft + 10) + 'px',
+                    height: (e.clientY - this.boxRef.current.getBoundingClientRect().top + 10) + 'px'
+                })
+            }
+
+        }
+        getWindowSize() {
+            console.log(document.body.clientWidth)
         }
         stopResizing = (e) => {
             window.removeEventListener('mousemove', this.startResizing, false);
