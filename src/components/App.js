@@ -13,42 +13,22 @@ class App extends Component {
             direction: "row"
          };
     }
-    // changeDirection = () => {
-    //     (this.state.direction === "row") ? 
-    //         this.setState({ direction: "column"}) : 
-    //         this.setState({ direction: "row"})
-    // }
-    changeFlexDirection = (selectedItem) => {
-        this.setState({ direction: selectedItem})
-    }
     render() {
         return (
             <div>
                 <Header />
-            <StyledApp>
-                
                 <FlexDirectionChange 
                     handleSelect={(selectedItem) => this.setState({direction: selectedItem})} 
                 />
                 <ContentDisplay>
-                    {/* <div className="childrenPropSection">
-                    <h1 className="mainHeader">CHILD PROPERTIES</h1>
-                        <div className="childrenPropsContent"> */} 
-                            <ChildPropertiesSection flexDirection={this.state.direction}/>
-                         {/* </div>
-                    </div> */}
+                    <ChildPropertiesSection flexDirection={this.state.direction}/>
                 </ContentDisplay> 
-            </StyledApp>
             </div>
         );
     }
 }
 
 export default App;
-
-const StyledApp = styled.div`
-
-`
 
 const ContentDisplay = styled.div`
     width: 80%;
