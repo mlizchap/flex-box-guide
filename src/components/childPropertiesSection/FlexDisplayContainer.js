@@ -62,7 +62,7 @@ const ItemContainerStyle = styled.div`
 `
 const Items = styled.div`
     display: flex;
-    width: 100%;
+    // width: 100%;
     flex-direction: ${props => props.flexDirection};
 `
 
@@ -85,6 +85,7 @@ const VerticalAxis = styled.div`
     flex-grow: content;
     height: 100%;
     font-family: ${globalStyle.titleFont};
+    z-index: 1;
     .verticalAxisContent {
         text-align: center;
         padding-top: 5px;

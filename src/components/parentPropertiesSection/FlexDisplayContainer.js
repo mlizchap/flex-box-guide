@@ -49,7 +49,7 @@ class FlexDisplayContainer extends Component {
                         return (
                             <FlexDisplayItem 
                                 key={i}
-                                display={i}
+                                display={i+1}
                                 //height={this.seedNumber(Math.floor(Math.random() * 16) + 20)}
                                 height={this.state.heights[i]}
                             />
@@ -108,6 +108,7 @@ const VerticalAxis = styled.div`
     flex-direction: row;
     flex-grow: content;
     height: 100%;
+    z-index: 1;
     font-family: ${globalStyle.titleFont};
     .verticalAxisContent {
         text-align: center;
