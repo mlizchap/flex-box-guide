@@ -15,6 +15,7 @@ class FlexDisplayContainer extends Component {
         }
     }
     render() {
+
         return (
             <React.Fragment>
             <HorizantalAxis {...this.props}>
@@ -62,10 +63,8 @@ const ItemContainerStyle = styled.div`
 `
 const ItemListStyle = styled.div`
     display: flex;
-
-    // FLEX DISPLAY PROPERTIES
-    justify-content: ${props => props.justifyContent};
-
+    justify-content: ${props => props.flexProperties.justifyContent};
+    align-items: flex-start;
     width: 100%;
     flex-direction: ${props => props.flexDirection};
 `
