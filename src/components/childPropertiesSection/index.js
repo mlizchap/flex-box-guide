@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import FlexDisplayContainer from './FlexDisplayContainer';
 import ItemInfoCardContainer from './ItemInfoCardContainer';
 import { globalStyle } from '../../globalStyle';
-const img =  require('../../static/BG.jpg')
 
 const data = {
     defaultValues: {
@@ -148,10 +147,11 @@ const ChildPropertiesSectionStyle = styled.div`
         text-align: center;
         color: white;
         font-family: ${globalStyle.mainFont}
-        font-size: 18pt;
-        letter-spacing: .1rem;
+        font-size: 12pt;
+        letter-spacing: .3rem;
     }
     .section {
+        font-family: ${globalStyle.mainFont}
         border: 2px solid #3d424c;
         margin-top: 20px;
         padding: 20px;

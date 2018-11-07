@@ -5,9 +5,6 @@ import FlexDirectionChange from './FlexDirectionChange';
 import ChildPropertiesSection from './childPropertiesSection';
 import { globalStyle } from '../globalStyle';
 import Header from './Header';
-const image =  require('../static/dust_scratches.png')
-const img =  require('../static/BG.jpg')
-
 
 const items = ["one", "two", "three"]
 
@@ -31,7 +28,7 @@ class App extends Component {
                 
                 <FlexDirectionChange handleChange={this.changeDirection} />
                 <ContentDisplay>
-                    <div class="childrenPropSection">
+                    <div className="childrenPropSection">
                     <h1 className="mainHeader">CHILD PROPERTIES</h1>
                         <div className="childrenPropsContent">
                             <ChildPropertiesSection flexDirection={this.state.direction}/>
@@ -47,7 +44,7 @@ class App extends Component {
 export default App;
 
 const StyledApp = styled.div`
-    // background-image: url(${image});
+
 `
 
 const ContentDisplay = styled.div`
