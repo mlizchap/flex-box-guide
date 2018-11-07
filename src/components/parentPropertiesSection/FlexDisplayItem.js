@@ -11,8 +11,8 @@ class FlexDisplayItem extends Component {
     render() {
         return (
             <div>
-                <ItemStyle>
-                    a
+                <ItemStyle {...this.props}>
+                    {this.props.display}
                 </ItemStyle>
             </div>
         );
@@ -22,15 +22,15 @@ class FlexDisplayItem extends Component {
 export default FlexDisplayItem;
 
 const ItemStyle = styled.div`
-    height: 20px;
-    line-height: 20px;
+    height: ${props => props.height}px;
+    line-height: ${props => props.height}px;
     border-radius: 2px;
     padding-right: 50px;
     padding-left: 50px;
     font-size: 14pt;
     text-align: center;
+    margin: 5px;
     background-color: ${globalStyle.parentPropColors.a}
-    // color: ${globalStyle.mainColor}
-    color: white;
+    color: ${globalStyle.mainColor}
     font-family: ${globalStyle.titleFont}
 `

@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { globalStyle } from '../globalStyle';
+
+let seed = 1
+
+
 const ResizeBox = styled.div`
     display: 'inline-block';
     #box {
@@ -36,6 +40,10 @@ export default (ChildComponent, divWidth) => {
             this.boxRef = React.createRef();
             this.childCompRef = React.createRef();
         }
+        getRandom = () => {
+            var x = Math.sin(seed++) * 10000;
+            return x - Math.floor(x)
+        }
         initialiseResize = (e) => {
             window.addEventListener('mousemove', this.startResizing, false);
             window.addEventListener('mouseup', this.stopResizing, false);
@@ -43,7 +51,8 @@ export default (ChildComponent, divWidth) => {
         startResizing = (e) => {  
             let maxPos = document.body.clientWidth - this.boxRef.current.offsetLeft;      
 
-            console.log("client", e.clientY)
+            console.log(this.getRandom())
+            
             
             if (e.clientX < maxPos && e.clientX > 300) {
                 this.setState({

@@ -21,28 +21,28 @@ const parentProperties = {
             kabobCaseTitle: 'justify-content',
             values: ["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly"],
             defaultValue: "flex-start",
-            itemAmount: 5
+            itemAmount: 4
         },
         {
             camelCaseTitle: 'alignItems',
             kabobCaseTitle: 'align-items',
             values: ["flex-start", "flex-end", "center", "stretch", "baseline"],
             defaultValue: "flex-start",
-            itemAmount: 5
+            itemAmount: 4
         },
         {
             camelCaseTitle: 'alignContent',
             kabobCaseTitle: 'align-content',
             values: ["flex-start", "flex-end", "center", "stretch", "space-between", "space-around"],
             defaultValue: "flex-start",
-            itemAmount: 10
+            itemAmount: 8
         },
         {
             camelCaseTitle: 'flexWrap',
             kabobCaseTitle: 'flex-wrap',
             values: ["no-wrap", "wrap", "wrap-reverse"],
             defaultValue: "no-wrap",
-            itemAmount: 10
+            itemAmount: 8
         },
     ]
 }
@@ -53,7 +53,7 @@ class ParentPropertiesSection extends Component {
         this.state = { 
             justifyContent: "flex-start",
             alignItems: "flex-start",
-            justifyContent: "justify-content",
+            alignContent: "flex-start",
             flexWrap: "no-wrap"
          };
     }

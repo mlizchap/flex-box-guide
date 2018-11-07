@@ -6,16 +6,24 @@ import resizable from '../resizable';
 import { globalStyle } from '../../globalStyle';
 import FlexDisplayItem from './FlexDisplayItem';
 
-
 class FlexDisplayContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            flexDir: "row"
+            flexDir: "row",
+            widths: [],
+            heights: []
         }
     }
+    componentDidMount = () => {
+        this.setState({ widths: Array.from({length: 10}, (_, i) => this.getRandomValue(20, 50)) })
+        this.setState({ heights: Array.from({length: 10}, (_, i) => this.getRandomValue(20, 50)) })
+    }
+    getRandomValue = (min,max) => {
+        return Math.floor(Math.random()*(max-min+1)+min);
+    }
     render() {
-
+        console.log(this.state.items)
         return (
             <React.Fragment>
             <HorizantalAxis {...this.props}>
@@ -37,7 +45,16 @@ class FlexDisplayContainer extends Component {
                 </VerticalAxis>
                 
                 <ItemListStyle {...this.props}>
-                    { Array.from({length: this.props.itemAmount}, (_, i) =>  <FlexDisplayItem key={i}/>)}
+                    { Array.from({length: this.props.itemAmount}, (_, i) => {
+                        return (
+                            <FlexDisplayItem 
+                                key={i}
+                                display={i}
+                                //height={this.seedNumber(Math.floor(Math.random() * 16) + 20)}
+                                height={this.state.heights[i]}
+                            />
+                        )
+                    })}
 
                     
 
