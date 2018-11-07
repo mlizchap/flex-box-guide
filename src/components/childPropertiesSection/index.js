@@ -8,7 +8,7 @@ import { globalStyle } from '../../globalStyle';
 const data = {
     defaultValues: {
         flexShrink: {a: 1, b: 1, c: 1},
-        flexGrow: {a: 1, b: 1, c: 1},
+        flexGrow: {a: 0, b: 0, c: 0},
         flexBasis: {a: "auto", b: "auto", c: "auto"},
         alignSelf: {a: "auto", b: "auto", c: "auto"},
         order: {a: 1, b: 1, c:1}
@@ -19,7 +19,7 @@ const data = {
             property: "flex-grow",
             camelCaseTitle: "flexGrow",
             content: [0, 1, 2, 3, 4, 5],
-            defaultValue: 1,
+            defaultValue: 0,
             color: "orange"
         },
         {
@@ -51,7 +51,7 @@ const data = {
             property: "order",
             camelCaseTitle: "order",
             content: [1, 2, 3],
-            defaultValue: 1,
+            defaultValue: 0,
         }
     ]
 }       
@@ -66,11 +66,11 @@ class ChildPropertiesSection extends Component {
         super(props);
         this.state = { 
             currentProp: "",
-                flexGrow: { a: 1, b: 1, c: 1},
+                flexGrow: { a: 0, b: 0, c: 0},
                 flexShrink: { a: 1, b: 1, c: 1},
                 flexBasis: {a: 'auto', b: 'auto', c: 'auto'},
                 alignSelf: {a: 'auto', b: 'auto', c: 'auto'},
-                order: {a: 1, b: 1, c: 1}
+                order: {a: 0, b: 0, c: 0}
 
         };
     }

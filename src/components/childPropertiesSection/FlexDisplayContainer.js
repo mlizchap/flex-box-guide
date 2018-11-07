@@ -18,7 +18,7 @@ class FlexDisplayContainer extends Component {
                 </div>
             </HorizantalAxis>
 
-            <ItemContainerStyle {...this.props}>
+            <OuterItemContainerStyle {...this.props}>
                 <VerticalAxis {...this.props}>
                     <div className="verticalAxisContent">
                         {(this.props.flexDirection === "row" || this.props.flexDirection === "row-reverse") ?
@@ -27,7 +27,8 @@ class FlexDisplayContainer extends Component {
                     </div>
                 </VerticalAxis>
 
-                <Items {...this.props}>
+                <InnerItemContainerStyle {...this.props}>
+                {/* <Items {...this.props}> */}
                     {this.props.flexBoxDataItems.map(item => {
                         return (
                             <FlexDisplayItem 
@@ -43,8 +44,8 @@ class FlexDisplayContainer extends Component {
                             />
                         )
                     })}
-                </Items>
-            </ItemContainerStyle>
+                </InnerItemContainerStyle>
+            </OuterItemContainerStyle>
             
             </React.Fragment>
         );
@@ -53,16 +54,18 @@ class FlexDisplayContainer extends Component {
 
 export default resizable(FlexDisplayContainer);
 
-const ItemContainerStyle = styled.div`
+const OuterItemContainerStyle = styled.div`
     display: flex;
+
     width: 100%;
+    // height: 320px;
     height: 100%;
     overflow: scroll;
     background-color: ${globalStyle.bgColorLight};
 `
-const Items = styled.div`
+const InnerItemContainerStyle = styled.div`
     display: flex;
-    // width: 100%;
+    // flex-wrap: nowrap;
     flex-direction: ${props => props.flexDirection};
 `
 

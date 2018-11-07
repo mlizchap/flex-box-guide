@@ -55,9 +55,6 @@ class FlexDisplayContainer extends Component {
                             />
                         )
                     })}
-
-                    
-
                 </ItemListStyle>
 
 
@@ -79,15 +76,14 @@ const ItemContainerStyle = styled.div`
 `
 const ItemListStyle = styled.div`
     display: flex;
+    flex-direction: ${props => props.flexDirection};
+    width: 100%;
 
     // FLEX PROPERTIES
     justify-content: ${props => props.flexProperties.justifyContent};
     align-items: ${props => props.flexProperties.alignItems};
     flex-wrap: ${props => props.flexProperties.flexWrap};
     align-content: ${props => props.flexProperties.alignContent};
-
-    width: 100%;
-    flex-direction: ${props => props.flexDirection};
 `
 
 const HorizantalAxis = styled.div`
