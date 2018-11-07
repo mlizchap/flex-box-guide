@@ -9,18 +9,18 @@ class FlexDisplayContainer extends Component {
     render() {
         return (
             <React.Fragment>
-            <YAxis>
-                <div class="yAxisContent">
-                    Y AXIS
+            <HorizantalAxis>
+                <div class="horizantalAxisContent">
+                    X AXIS
                 </div>
-            </YAxis>
+            </HorizantalAxis>
 
             <ItemContainerStyle {...this.props}>
-                <XAxis>
-                    <div class="yAxisContent">
+                <VerticalAxis>
+                    <div class="verticalAxisContent">
                         X AXIS
                     </div>
-                </XAxis>
+                </VerticalAxis>
 
                 <Items {...this.props}>
                     {this.props.flexBoxDataItems.map(item => {
@@ -53,31 +53,29 @@ const ItemContainerStyle = styled.div`
     height: 100%;
     overflow: scroll;
     background-color: ${globalStyle.bgColorLight};
-
 `
-
 const Items = styled.div`
     background-color: yellow;
     display: flex;
-    // flex-direction: column;
     width: 100%;
     flex-direction: ${props => props.flexDirection};
 `
 
-const YAxis = styled.div`
+const HorizantalAxis = styled.div`
     width: 100%;
-    .yAxisContent {
+    .horizantalAxisContent {
         background-color: purple;
     }
 `
 
-const XAxis = styled.div`
+const VerticalAxis = styled.div`
     background-color: green;
     display: flex;
     flex-direction: row;
     width: 50px;
     flex-grow: content;
-    .yAxisContent {
+    height: 100%;
+    .verticalAxisContent {
         background-color: blue;
     }
 `
