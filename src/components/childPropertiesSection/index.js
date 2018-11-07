@@ -84,7 +84,13 @@ class ChildPropertiesSection extends Component {
     render() {
         return (
             <ChildPropertiesSectionStyle>
-                <div style={{marginBottom: '200px'}}>
+                
+                <div>
+
+                    <TitleStyle>
+                        <h3 className="mainHeader">CHILD PROPERTIES</h3>
+                    </TitleStyle>
+
                     <div className="section">
                         <h1>flex-grow | flex-shrink | flex-basis</h1>
                         <ItemInfoCardContainer 
@@ -141,14 +147,18 @@ class ChildPropertiesSection extends Component {
 export default ChildPropertiesSection;
 
 const ChildPropertiesSectionStyle = styled.div`
-    //margin-top: 20px;
+    margin: 50px 0 ;
     font-family: ${globalStyle.mainFont}
+    border: 1px solid ${globalStyle.childPropColors.main}
+    padding: 20px 30px;
+
     h1 {
         text-align: center;
         color: white;
         font-family: ${globalStyle.mainFont}
         font-size: 12pt;
         letter-spacing: .3rem;
+        color: ${globalStyle.childPropColors.b}
     }
     .section {
         font-family: ${globalStyle.mainFont}
@@ -156,5 +166,16 @@ const ChildPropertiesSectionStyle = styled.div`
         margin-top: 20px;
         padding: 20px;
         background-color: #424247;
+    }
+`
+
+const TitleStyle = styled.div`
+    .mainHeader {
+        color: ${globalStyle.childPropColors.main}
+        font-family: ${globalStyle.mainFont}
+        font-size: 18pt;
+        padding: 10px;
+        display: inline-block;
+        font-family: ${globalStyle.titleFont};
     }
 `
