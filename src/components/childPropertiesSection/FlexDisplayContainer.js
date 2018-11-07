@@ -10,15 +10,20 @@ class FlexDisplayContainer extends Component {
         return (
             <React.Fragment>
             <HorizantalAxis>
-                <div class="horizantalAxisContent">
-                    X AXIS
+                <div className="horizantalAxisContent">
+                    {(this.props.flexDirection === "row" || this.props.flexDirection === "row-reverse") ?
+                        <span>MAIN AXIS</span> : <span>CROSS AXIS</span>
+                    }
+                   
                 </div>
             </HorizantalAxis>
 
             <ItemContainerStyle {...this.props}>
                 <VerticalAxis>
-                    <div class="verticalAxisContent">
-                        Y AXIS
+                    <div className="verticalAxisContent">
+                        {(this.props.flexDirection === "row" || this.props.flexDirection === "row-reverse") ?
+                            <span>CROSS AXIS</span> : <span>MAIN AXIS</span>
+                        }
                     </div>
                 </VerticalAxis>
 
@@ -83,6 +88,7 @@ const VerticalAxis = styled.div`
     .verticalAxisContent {
         text-align: center;
         padding-top: 5px;
-        // background-color: green;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
     }
 `
