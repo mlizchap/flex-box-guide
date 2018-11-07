@@ -23,8 +23,9 @@ class App extends Component {
                     handleSelect={(selectedItem) => this.setState({direction: selectedItem})} 
                 />
                 <ContentDisplay>
-                    <ChildPropertiesSection flexDirection={this.state.direction}/>
                     <ParentPropertiesSection flexDirection={this.state.direction} />
+                    <ChildPropertiesSection flexDirection={this.state.direction}/>
+
                 </ContentDisplay> 
             </div>
         );

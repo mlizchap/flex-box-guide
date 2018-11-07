@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 // import FlexDisplayItem from './FlexDisplayItem';
-import resizable from './resizable';
-import { globalStyle } from '../globalStyle';
+import resizable from '../resizable';
+import { globalStyle } from '../../globalStyle';
+import FlexDisplayItem from './FlexDisplayItem';
+
 
 class FlexDisplayContainer extends Component {
     constructor(props) {
@@ -13,8 +15,6 @@ class FlexDisplayContainer extends Component {
         }
     }
     render() {
-        console.log("DIR", this.props.flexDirection)
-
         return (
             <React.Fragment>
             <HorizantalAxis {...this.props}>
@@ -34,26 +34,18 @@ class FlexDisplayContainer extends Component {
                         }
                     </div>
                 </VerticalAxis>
+                
+                <ItemListStyle {...this.props}>
+                    <FlexDisplayItem />
+                    <FlexDisplayItem />
+                    <FlexDisplayItem />
+                    <FlexDisplayItem />
+                    <FlexDisplayItem />
+                </ItemListStyle>
 
-                {/* <Items {...this.props}>
-                    {this.props.flexBoxDataItems.map(item => {
-                        return (
-                            <FlexDisplayItem 
-                                key={item} 
-                                flexGrow={this.props.flexGrow[`${item}`]} 
-                                flexShrink={this.props.flexShrink[`${item}`]}
-                                flexBasis={this.props.flexBasis[`${item}`]}
-                                alignSelf={this.props.alignSelf[`${item}`]}
-                                order={this.props.order[`${item}`]}
-                                letter={item} 
-                                bgColor={globalStyle.childPropColors[`${item}`]}
-                                flexDisplay={this.props.flexDirection}
-                            />
-                        )
-                    })}
-                </Items> */}
+
             </ItemContainerStyle>
-            
+                
             </React.Fragment>
         );
     }
@@ -68,15 +60,18 @@ const ItemContainerStyle = styled.div`
     overflow: scroll;
     background-color: ${globalStyle.bgColorLight};
 `
-const Items = styled.div`
+const ItemListStyle = styled.div`
     display: flex;
+
+    // FLEX DISPLAY PROPERTIES
+    justify-content: ${props => props.justifyContent};
+
     width: 100%;
     flex-direction: ${props => props.flexDirection};
 `
 
 const HorizantalAxis = styled.div`
     width: 100%;
-    // background-color: ${globalStyle.mainAxisBgColor};
     background-color: ${props => (props.flexDirection === "row" || props.flexDirection === "row-reverse") ? globalStyle.mainAxisBgColor : globalStyle.crossAxisBgColor}
     color: ${props => (props.flexDirection === "row" || props.flexDirection === "row-reverse") ? globalStyle.mainAxisColor : globalStyle.crossAxisColor}
     padding: 2px 0;
@@ -93,8 +88,6 @@ const VerticalAxis = styled.div`
     flex-direction: row;
     flex-grow: content;
     height: 100%;
-    // background-color: ${globalStyle.crossAxisBgColor};
-    // color: ${globalStyle.crossAxisColor};
     font-family: ${globalStyle.titleFont};
     .verticalAxisContent {
         text-align: center;

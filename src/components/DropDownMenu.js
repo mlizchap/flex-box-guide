@@ -106,8 +106,12 @@ const DropDownMenuStyle = styled.div`
         padding-right: 5px;
     }
 `
+
 DropDownMenu.defaultProps = {
-    handleSelect: (selected) => console.log("you have chosen", selected)
+    handleSelect: (selected) => console.log("you have chosen", selected),
+    contentItems: ["item1", "item2", "item3"],
+    defaultValue: "select"
+
 }
 DropDownMenuStyle.defaultProps = {
     width: '150',

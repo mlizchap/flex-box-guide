@@ -10,6 +10,13 @@ export const globalStyle = {
     crossAxisColor: `#f7b879`,
     crossAxisBgColor: `#ffedd8`,
 
+    parentPropColors: {
+        main: '#49b7a4',
+        a: '#b5ffe6',
+        b: '#ddffe9',
+        c: '#a9e8ce',
+    },
+
     childPropColors: {
         main: '#3669bc',
         a: '#bdddfc',
