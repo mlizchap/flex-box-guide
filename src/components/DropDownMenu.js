@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { globalStyle} from '../globalStyle'
-
 class DropDownMenu extends Component {
     constructor(props) {
         super(props);
         this.state = { 
             display: "none",
-            currentContent: ""
+            currentContent: "",
+            touched: false
          };
     }
     showContent = () => {
@@ -19,7 +18,7 @@ class DropDownMenu extends Component {
     }
     selectContent = (e) => {
         this.setState(
-            { currentContent: e.target.innerHTML }, 
+            { currentContent: e.target.innerHTML, touched: true }, 
             () => this.props.handleSelect(this.state.currentContent)
         )
     }
@@ -33,7 +32,19 @@ class DropDownMenu extends Component {
                     </button>
                     <div className="content">
                         {this.props.contentItems.map(item => {
-                            return <div key={item} className="item" onClick={this.selectContent}>{item}</div>
+                            if (item.toString() === this.state.currentContent || (item === this.props.defaultValue && this.state.touched === false)) {
+                                return (
+                                    <div key={item} className="item nonActiveItem" onClick={this.selectContent}>
+                                        {item}
+                                    </div>
+                                )
+                            } else {
+                                return (
+                                    <div key={item} className="item activeItem" onClick={this.selectContent}>
+                                        {item}
+                                    </div>
+                                )
+                            } 
                         })}
                     </div>
                 </div>
@@ -47,7 +58,6 @@ export default DropDownMenu;
 const DropDownMenuStyle = styled.div`
     font-family: inherit;
     display: inline-block;
-    
     .dropDownContainer {
         width: ${props => props.width}px;
     }
@@ -56,14 +66,13 @@ const DropDownMenuStyle = styled.div`
     }
     button {
         padding: ${props => props.padding};
-
         width: ${props => props.width}px;
         background-color: ${props => props.buttonColor};
         font-size: ${props => props.fontSize};
         color: ${props => props.buttonFontColor}
         outline: none;
         border: none;
-        font-family: ${globalStyle.mainFont}
+        font-family: ${props => props.font}
     }
     .content {
         position: absolute;
@@ -73,14 +82,22 @@ const DropDownMenuStyle = styled.div`
         background-color: ${props => props.contentColor}
         color: ${props => props.contentFontColor};
         font-size: ${props => props.fontSize};
-        font-family: inherit;
+        font-family: ${props => props.font}
         z-index: 5;
+    }
+    .activeItem {
+        &:hover {
+            background-color: ${props => props.contentHighlight};
+            cursor: pointer;
+        }
+    }
+    .nonActiveItem {
+        background-color: ${props => props.greyedOutBg};
+        color: ${props => props.greyedOutColor};
     }
     .item {
        padding: 5px;
-       &:hover {
-        background-color: ${props => props.contentHighlight}
-    }
+
     }
     .arrow {
         float: right;
@@ -95,8 +112,11 @@ DropDownMenuStyle.defaultProps = {
     fontSize: '9pt',
     buttonColor: '#5e7999',
     buttonFontColor: `#edf5ff`,
-    contentColor: `#dbdbdb`,
+    contentColor: `#dce6f7`,
     contentFontColor: `#545454`,
-    contentHighlight: `#f2f2f2`,
-    padding: `3px`
+    contentHighlight: `#f7faff`,
+    padding: `3px`,
+    font: 'arial',
+    greyedOutBg: '#a5a5a5',
+    greyedOutColor: '#dbdbdb',
 }

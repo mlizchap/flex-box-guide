@@ -53,14 +53,19 @@ class ItemCardDisplay extends Component {
     renderFlexValuesDisplay = (itemVal) => {
         return this.props.flexPropInfo.map(item => {
             return (
-               <div className="item" key={item.title}>
-                   <span className="title">{item.title}:</span>
+               <div className="item" key={item.property}>
+                   <span className="property">
+                        {item.property}:
+                    </span>
+                   <span className="dropdown">
                    <DropDownMenu  
                         handleSelect={(selected) => this.selectItem(selected, item.camelCaseTitle, itemVal)} 
                         contentItems={item.content} 
                         defaultValue={item.defaultValue} 
                         width={100}
+                        font={globalStyle.mainFont}
                     />
+                    </span>
                </div>
             )
        })
@@ -71,7 +76,9 @@ class ItemCardDisplay extends Component {
             <div>
                 <ItemCardStyle bgColor={globalStyle.childPropColors[`${this.props.item}`]}>
                     <div className="itemCard">
-                        <h3>{this.props.item}</h3>
+                        <CardItemTitleStyle {...this.props}>
+                            <h3>{this.props.item}</h3>
+                        </CardItemTitleStyle>
                         {this.renderFlexValuesDisplay(this.props.item)}
                     </div>
                 </ItemCardStyle>
@@ -82,32 +89,50 @@ class ItemCardDisplay extends Component {
 
 export default ItemCardDisplay;
 
+const CardItemTitleStyle = styled.div`
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    background-color: ${globalStyle.white};
+    margin: 0 auto 15px auto;
+    // margin-right: auto;
+    // margin-left: auto;
+    border-radius: 50%;
+    // margin-bottom: 15px;
+`
+
 const ItemCardStyle = styled.div`
     display: flex;
-    h3 {
-        font-size: 14pt;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
     text-align: center;
     font-size: 10pt;
     color: ${globalStyle.mainColor}
+    h3 {
+        font-size: 14pt;
+        font-family: ${globalStyle.titleFont};
+        // color: ${props => props.bgColor};
+        color: ${globalStyle.childPropColors.main}
+        font-size: 12pt;
+    }
     .itemCard {
         display: inline-block;
-        width: 100px;
+        width: 85%;
         margin: 20px 0;
         padding: 20px;
         background-color: ${props => props.bgColor};
     }
-    .title {
+    .item {
+        // background-color: orange;
+        margin-top: 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .property {
         display: inline-block;
-        width: 75px;
+        float: left;
         text-align: right;
         margin-right: 10px;
     }
-    .item {
-        margin-top: 5px;
+    .dropdown {
+        float:right;
     }
 `

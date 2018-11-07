@@ -11,9 +11,9 @@ class Header extends Component {
     render() {
         return (
             <HeaderStyle>
-                <span className="flexText">Flex</span> 
-                <span className="boxText">box</span> 
-                {/* <span className="guideText">Guide</span> */}
+                <h1>flex box guide</h1>
+                {/* <span className="flexText">Flex</span> 
+                <span className="boxText">box</span>  */}
             </HeaderStyle>
         );
     }
@@ -22,27 +22,33 @@ class Header extends Component {
 export default Header;
 
 const HeaderStyle = styled.div`
-    padding: 30px;
+    padding: 15px;
     margin: 0;
     text-align: center;
     font-size: 22pt;
     color: ${globalStyle.mainColor};
+    background-color: ${globalStyle.bgColorDark};
+    color: #ffdbdb;
+    letter-spacing: .3rem;
     width: 100%;
-
-    .flexText {
-        letter-spacing: .1rem;
-        font-family: ${globalStyle.headerFont4};
-        margin-right: 10px;
+    h1 {
+        font-family: ${globalStyle.titleFont};
+        font-size: 22pt;
     }
-    .boxText {
-        background-color: #e8dcd5;
-        border: 1px solid ${globalStyle.mainColor};;
-        padding: 5px;
-        font-family: monospace;
-        margin-right: 10px;
-        color: ${globalStyle.mainColor};
-    }
-    .guideText {
-        font-family: ${globalStyle.headerFont6}
-    }
+    // .flexText {
+    //     letter-spacing: .1rem;
+    //     font-family: ${globalStyle.headerFont4};
+    //     margin-right: 10px;
+    // }
+    // .boxText {
+    //     background-color: #e8dcd5;
+    //     border: 1px solid ${globalStyle.mainColor};;
+    //     padding: 5px;
+    //     font-family: monospace;
+    //     margin-right: 10px;
+    //     color: ${globalStyle.mainColor};
+    // }
+    // .guideText {
+    //     font-family: ${globalStyle.headerFont6}
+    // }
 `

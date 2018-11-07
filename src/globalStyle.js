@@ -1,13 +1,14 @@
 export const globalStyle = {
     mainColor: '#5a6272',
-    dark: '#3a3a3a',
+    // dark: '#3a3a3a',
     white: `#fcfcfc`,
-    bgColorLight:  `#bcbcbc`,
+    bgColorLight:  `#65656d`,
+    bgColorDark: `#424247`,
 
     mainAxisColor: `#e28c8c`,
-    mainAxisBgColor: `#efb8b8`,
-    crossAxisColor: `#ae99c4`,
-    crossAxisBgColor: `#efe5f9`,
+    mainAxisBgColor: `#ffdbdb`,
+    crossAxisColor: `#f7b879`,
+    crossAxisBgColor: `#ffedd8`,
 
     childPropColors: {
         main: '#3669bc',

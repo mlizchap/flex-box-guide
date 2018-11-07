@@ -16,21 +16,21 @@ const data = {
     items: ["a", "b", "c"],
     growShrinkbasis: [
         {
-            title: "flex-grow",
+            property: "flex-grow",
             camelCaseTitle: "flexGrow",
             content: [0, 1, 2, 3, 4, 5],
             defaultValue: 1,
             color: "orange"
         },
         {
-            title: "flex-shrink",
+            property: "flex-shrink",
             camelCaseTitle: "flexShrink",
             content: [0, 1, 2, 3, 4, 5],
             defaultValue: 1,
             color: "navy"
         },
         {
-            title: "flex-basis",
+            property: "flex-basis",
             camelCaseTitle: "flexBasis",
             content: ["20%", "33%", "40%", "60%", "auto", "content"],
             defaultValue: "auto",
@@ -39,7 +39,7 @@ const data = {
     ],
     alignSelf: [
         {
-            title: "align-self",
+            property: "align-self",
             camelCaseTitle: "alignSelf",
             content: ["auto", "flex-start", "flex-end", "center", "baseline", "stretch"],
             defaultValue: "auto",
@@ -48,7 +48,7 @@ const data = {
     ],
     order: [
         {
-            title: "order",
+            property: "order",
             camelCaseTitle: "order",
             content: [1, 2, 3],
             defaultValue: 1,
@@ -165,7 +165,7 @@ const ChildPropertiesSectionStyle = styled.div`
         border: 2px solid #3d424c;
         margin-top: 20px;
         padding: 20px;
-        background-color: #424247;
+        background-color: ${globalStyle.bgColorDark};
     }
 `
 
