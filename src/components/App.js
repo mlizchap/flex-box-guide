@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import FlexDirectionChange from './FlexDirectionChange';
 import ChildPropSection from './ChildPropSection';
-import ParentPropertiesSection from './parentPropertiesSection';
+import ParentPropertiesSection from './ParentPropSection';
 import { globalStyle } from '../globalStyle';
 import Header from './Header';
 
@@ -22,7 +22,7 @@ class App extends Component {
                     handleSelect={(selectedItem) => this.setState({direction: selectedItem})} 
                 />
                 <ContentDisplay>
-                    {/* <ParentPropertiesSection flexDirection={this.state.direction} /> */}
+                    <ParentPropertiesSection flexDirection={this.state.direction} />
                     <ChildPropSection flexDirection={this.state.direction}/>
 
                 </ContentDisplay> 
