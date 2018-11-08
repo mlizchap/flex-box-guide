@@ -89,11 +89,13 @@ class ChildPropSection extends Component {
          };
     }
     changePropToSelected = (value, title, item) => {
-        // console.log({...this.state.flexProperties[`${title}`]})
         this.setState(
             { flexProperties: 
-                // ...this.state.flexProperties,
-                { ...this.state.flexProperties, [`${title}`]: {...this.state.flexProperties[`${title}`], [`${item}`]: value}
+                { 
+                    ...this.state.flexProperties, 
+                    [`${title}`]: {...this.state.flexProperties[`${title}`], 
+                    [`${item}`]: parseInt(value)
+                }
             }}, () => console.log(this.state)
         )
     }
@@ -101,6 +103,7 @@ class ChildPropSection extends Component {
         return (
             <div>
                 {childPropCardInfo.itemCardValues.map((property,index) => {
+                    console.log(property)
                     return (
                         <div key={property[0].title}>
                             <ItemInfoCardContainer 
@@ -112,8 +115,10 @@ class ChildPropSection extends Component {
                                 itemColors={[globalStyle.childPropColors.a, globalStyle.childPropColors.b, globalStyle.childPropColors.c]}
                                 itemAmount={3}
                                 characters={["a", "b", "c"]}
+                                
                                 childFlexProperties={this.state.flexProperties}
-                                {...this.props} 
+                                // childFlexProperties={{flexGrow: 5}}
+                                // {...this.props} 
                             /> 
                         </div>
                     )

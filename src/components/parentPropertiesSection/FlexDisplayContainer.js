@@ -48,6 +48,7 @@ class FlexDisplayContainer extends Component {
                                 key={i}
                                 display={i+1}
                                 height={this.state.heights[i]}
+                                {...this.props}
                             />
                         )
                     })}

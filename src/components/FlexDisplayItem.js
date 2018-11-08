@@ -17,11 +17,11 @@ export default FlexDisplayItem;
 
 const Item = styled.div`
     // FLEX PROPERTIES
-    flex-grow: ${props => props.childFlexProperties.flexGrow};
-    flex-shrink: ${props => props.childFlexProperties.flexShrink};
-    flex-basis: ${props => props.childFlexProperties.flexBasis};
-    align-self: ${props => props.childFlexProperties.alignSelf};
-    order: ${props => props.childFlexProperties.order};
+    flex-grow: ${props => props.childFlexProperties.flexGrow[`${props.item}`]};
+    flex-shrink: ${props => props.childFlexProperties.flexShrink[`${props.item}`]};
+    flex-basis: ${props => props.childFlexProperties.flexBasis[`${props.item}`]};
+    align-self: ${props => props.childFlexProperties.alignSelf[`${props.item}`]};
+    order: ${props => props.childFlexProperties.order[`${props.item}`]};
 
     background-color: ${props => props.bgColor};
     color: ${globalStyle.mainColor};

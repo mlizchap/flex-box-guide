@@ -28,6 +28,7 @@ class ItemCardDisplay extends Component {
                    <span className="dropdown">
                    <DropDownMenu  
                         handleSelect={(selected) => this.selectItem(selected, item.camelCaseTitle, itemVal)} 
+                        
                         contentItems={item.content} 
                         defaultValue={item.defaultValue} 
                         width={100}

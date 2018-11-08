@@ -51,6 +51,7 @@ class FlexDisplayBox extends Component {
                                     height={this.state.heights[i]}
                                     bgColor={this.props.itemColor || this.props.itemColors[i]}
                                     textDisplay={this.props.characters[i]}
+                                    item={this.props.characters[i]}
                                     {...this.props}
                                 />
                             )
