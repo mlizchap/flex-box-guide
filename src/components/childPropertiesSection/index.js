@@ -8,7 +8,7 @@ import { globalStyle } from '../../globalStyle';
 const data = {
     defaultValues: {
         flexShrink: {a: 1, b: 1, c: 1},
-        flexGrow: {a: 1, b: 1, c: 1},
+        flexGrow: {a: 0, b: 0, c: 0},
         flexBasis: {a: "auto", b: "auto", c: "auto"},
         alignSelf: {a: "auto", b: "auto", c: "auto"},
         order: {a: 1, b: 1, c:1}

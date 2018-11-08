@@ -36,5 +36,5 @@ const Item = styled.div`
     margin: 5px;
     height: ${props => props.height}px;
     line-height: ${props => props.height}px;
-    
+    width: 30px;
 `

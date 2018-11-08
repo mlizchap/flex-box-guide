@@ -9,11 +9,13 @@ class FlexDisplayContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            heights: []
+            heights: [],
+            widths: []
         }
     }
     componentDidMount = () => {
-        this.setState({ heights: Array.from({length: 10}, (_, i) => this.getRandomValue(25, 60)) })
+        this.setState({ heights: Array.from({length: 3}, (_, i) => this.getRandomValue(25, 60)) })
+        this.setState({ widths: Array.from({length: 3}, (_, i) => this.getRandomValue(60, 120)) }, () => console.log(this.state.widths))
     }
     getRandomValue = (min,max) => {
         return Math.floor(Math.random()*(max-min+1)+min);
@@ -54,6 +56,7 @@ class FlexDisplayContainer extends Component {
                                 bgColor={globalStyle.childPropColors[`${item}`]}
                                 flexDisplay={this.props.flexDirection}
                                 height={this.state.heights[index]}
+                                width={this.state.widths[index]}
                             />
                         )
                     })}
