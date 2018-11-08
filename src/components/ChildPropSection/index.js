@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import FlexDisplayBox from '../FlexDisplayBox'
+import FlexDisplayBox from '../FlexDisplayBox';
+import FlexDisplayItem from '../FlexDisplayItem';
+import { globalStyle } from '../../globalStyle';
 
 class ChildPropSection extends Component {
     constructor(props) {
@@ -10,7 +12,11 @@ class ChildPropSection extends Component {
     render() {
         return (
             <div>
-                <FlexDisplayBox {...this.props} />
+                <FlexDisplayBox 
+                    itemColors={[globalStyle.childPropColors.a, globalStyle.childPropColors.b, globalStyle.childPropColors.c]}
+                    itemAmount={3}
+                    {...this.props} 
+                />
             </div>
         );
     }

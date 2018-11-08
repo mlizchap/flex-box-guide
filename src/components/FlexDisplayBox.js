@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-// import FlexDisplayItem from './FlexDisplayItem';
 import resizable from './resizable';
 import { globalStyle } from '../globalStyle';
-// import FlexDisplayItem from './FlexDisplayItem';
+import FlexDisplayItem from './FlexDisplayItem';
+
+let colors=["red", "blue", "green"]
 
 class FlexDisplayBox extends Component {
     constructor(props) {
@@ -32,7 +33,7 @@ class FlexDisplayBox extends Component {
                 </div>
             </HorizantalAxis>
 
-            <ItemContainerStyle {...this.props}>
+            <ItemsAndVertAxisStyle {...this.props}>
                 <VerticalAxis {...this.props}>
                     <div className="verticalAxisContent">
                         {(this.props.flexDirection === "row" || this.props.flexDirection === "row-reverse") ?
@@ -41,20 +42,22 @@ class FlexDisplayBox extends Component {
                     </div>
                 </VerticalAxis>
                 
-                {/* <ItemListStyle {...this.props}>
+                <ItemContainerStyle {...this.props}>
                     { Array.from({length: this.props.itemAmount}, (_, i) => {
                         return (
                             <FlexDisplayItem 
                                 key={i}
                                 display={i+1}
                                 height={this.state.heights[i]}
+                                bgColor={this.props.itemColor || this.props.itemColors[i]}
+                                {...this.props}
                             />
                         )
                     })}
-                </ItemListStyle> */}
+                </ItemContainerStyle>
 
 
-            </ItemContainerStyle>
+            </ItemsAndVertAxisStyle>
                 
             </React.Fragment>
         );
@@ -63,23 +66,20 @@ class FlexDisplayBox extends Component {
 
 export default resizable(FlexDisplayBox);
 
-const ItemContainerStyle = styled.div`
+const ItemsAndVertAxisStyle = styled.div`
     display: flex;
     width: 100%;
     height: 100%;
     overflow: scroll;
     background-color: ${globalStyle.bgColorLight};
 `
-const ItemListStyle = styled.div`
+const ItemContainerStyle = styled.div`
     display: flex;
     flex-direction: ${props => props.flexDirection};
     width: 100%;
 
     // FLEX PROPERTIES
-    justify-content: ${props => props.flexProperties.justifyContent};
-    align-items: ${props => props.flexProperties.alignItems};
-    flex-wrap: ${props => props.flexProperties.flexWrap};
-    align-content: ${props => props.flexProperties.alignContent};
+
 `
 
 const HorizantalAxis = styled.div`
@@ -109,3 +109,8 @@ const VerticalAxis = styled.div`
         text-orientation: mixed;
     }
 `
+
+    // justify-content: ${props => props.flexProperties.justifyContent};
+    // align-items: ${props => props.flexProperties.alignItems};
+    // flex-wrap: ${props => props.flexProperties.flexWrap};
+    // align-content: ${props => props.flexProperties.alignContent};
