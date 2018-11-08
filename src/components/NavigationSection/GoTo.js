@@ -13,77 +13,77 @@ const sections = [
         id: 4235345,
         title: "PARENT PROPERTIES",
         type: "header",
-        href: "parentProperties",
+        href: "#parentProperties",
         color: "green"
     },
     {
         id: 23452345,
         title: "justify-content",
         type: "subheader",
-        href: "justifyContent",
+        href: "#justifyContent",
         color: "green"
     },
     {
         id: 234523452,
         title: "align-items",
         type: "subheader",
-        href: "alignItems",
+        href: "#alignItems",
         color: "green"
     },
     {
         id: 5674673452,
         title: "align-content",
         type: "subheader",
-        href: "alignContent",
+        href: "#alignContent",
         color: "green"
     },
     {
         id: 1234125,
         title: "flex-wrap",
         type: "subheader",
-        href: "flexWrap",
+        href: "#flexWrap",
         color: "green"
     },
     {
         id: 542312,
         title: "CHILD PROPERTIES",
         type: "header",
-        href: "childProperties",
+        href: "#childProperties",
         color: "blue"
     },
     {
         id: 1234665,
         title: "flex-grow",
         type: "subheader",
-        href: "flex",
+        href: "#flex",
         color: "blue"
     },
     {
         id: 423523422,
         title: "flex-shrink",
         type: "subheader",
-        href: "flex",
+        href: "#flex",
         color: "blue"
     },
     {
         id: 954234,
         title: "flex-basis",
         type: "subheader",
-        href: "flex",
+        href: "#flex",
         color: "blue"
     },
     {
         id: 6534433,
         title: "align-self",
         type: "subheader",
-        href: "alignSelf",
+        href: "#alignSelf",
         color: "blue"
     },
     {
         id: 11,
         title: "order",
         type: "subheader",
-        href: "order",
+        href: "#order",
         color: "blue"
     },
 ]
@@ -97,9 +97,10 @@ class GoTo extends Component {
         window.addEventListener('scroll', this.handleScroll)
     }
     goToSelected = (content) => {
-        sections.map(i => console.log(i))
-        //console.log(sections.indexOf())
-
+        let currentContentHref = sections.filter(i => content === i.title)[0].href;
+        console.log(currentContentHref);
+        window.location.href = currentContentHref;
+        window.scrollBy(0, -85); 
         //let contentIndex = contents.indexOf(content);
         //console.log(`#${hrefs[contentIndex]}`)
         //window.location.href= `#${hrefs[contentIndex]}`;
