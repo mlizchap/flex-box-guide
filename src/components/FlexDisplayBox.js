@@ -5,8 +5,6 @@ import resizable from './resizable';
 import { globalStyle } from '../globalStyle';
 import FlexDisplayItem from './FlexDisplayItem';
 
-let colors=["red", "blue", "green"]
-
 class FlexDisplayBox extends Component {
     constructor(props) {
         super(props);

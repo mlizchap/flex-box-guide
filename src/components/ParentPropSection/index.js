@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import FlexDisplayContainer from './FlexDisplayContainer';
-import FlexDisplayItem from './FlexDisplayItem';
 import { MainHeaderStyle } from '../styles/MainHeaderStyle';
 import { SectionStyle } from '../styles/SectionStyle';
 import { globalStyle } from '../../globalStyle';

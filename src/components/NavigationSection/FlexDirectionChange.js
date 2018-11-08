@@ -19,7 +19,7 @@ class FlexDirectionChange extends Component {
                         defaultValue="row" 
                         contentItems={selectionContent} 
                         handleSelect={(selected) => this.props.handleSelect(selected)}
-                        width={140}
+                        width={150}
                         fontSize="10pt"
                         padding="5px"
                         font={globalStyle.titleFont}

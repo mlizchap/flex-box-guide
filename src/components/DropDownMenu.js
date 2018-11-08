@@ -27,7 +27,7 @@ class DropDownMenu extends Component {
             <DropDownMenuStyle contentDisplay={this.state.display} {...this.props}>
                 <div onClick={this.showContent} onMouseLeave={this.hideContent} className="dropDownContainer">
                     <button>
-                        <span className="currentContent">{(this.state.currentContent) ? this.state.currentContent : this.props.defaultValue}</span>
+                        <span className="currentContent">{(this.state.currentContent && this.props.displayCurrentOnTop) ? this.state.currentContent : this.props.defaultValue}</span>
                         <span className="arrow">&#9660;</span>
                     </button>
                     <div className="content">
@@ -110,7 +110,8 @@ const DropDownMenuStyle = styled.div`
 DropDownMenu.defaultProps = {
     handleSelect: (selected) => console.log("you have chosen", selected),
     contentItems: ["item1", "item2", "item3"],
-    defaultValue: "select"
+    defaultValue: "select",
+    displayCurrentOnTop: true
 
 }
 DropDownMenuStyle.defaultProps = {

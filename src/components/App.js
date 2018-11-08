@@ -4,15 +4,18 @@ import styled from 'styled-components';
 import NavigationSection from './NavigationSection';
 import ChildPropSection from './ChildPropSection';
 import ParentPropertiesSection from './ParentPropSection';
-import { globalStyle } from '../globalStyle';
 import Header from './Header';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            direction: "row"
+            direction: "row",
+            currentProperty: ""
          };
+    }
+    componentDidMount = () => {
+        // console.log("FLEXLOC", this.props.refs)
     }
     render() {
         return (
@@ -23,10 +26,15 @@ class App extends Component {
                 /> */}
                 <NavigationSection 
                     handleSelect={(selectedItem) => this.setState({direction: selectedItem})} 
+                    // curr="something"
                 />
                 <ContentDisplay>
                     <ParentPropertiesSection flexDirection={this.state.direction} />
-                    <ChildPropSection flexDirection={this.state.direction}/>
+                    <ChildPropSection 
+                        hasReachedTop={(val) => console.log(val) }
+                        flexDirection={this.state.direction} 
+                        {...this.props}
+                    />
                 </ContentDisplay> 
             </div>
         );

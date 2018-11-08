@@ -13,7 +13,7 @@ class Display extends Component {
         return (
             <DisplayStyle>
                 <DropDownMenu 
-                    width={140}
+                    width={150}
                     fontSize="10pt"
                     padding="5px"
                     font={globalStyle.titleFont}
