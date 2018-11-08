@@ -11,19 +11,16 @@ class FlexDisplayContainer extends Component {
         super(props);
         this.state = {
             flexDir: "row",
-            widths: [],
-            heights: []
+            heights: [],
         }
     }
     componentDidMount = () => {
-        this.setState({ widths: Array.from({length: 10}, (_, i) => this.getRandomValue(20, 50)) })
-        this.setState({ heights: Array.from({length: 10}, (_, i) => this.getRandomValue(20, 50)) })
+        this.setState({ heights: Array.from({length: 10}, (_, i) => this.getRandomValue(25, 75)) })
     }
     getRandomValue = (min,max) => {
         return Math.floor(Math.random()*(max-min+1)+min);
     }
     render() {
-        console.log(this.state.items)
         return (
             <React.Fragment>
             <HorizantalAxis {...this.props}>
@@ -50,7 +47,6 @@ class FlexDisplayContainer extends Component {
                             <FlexDisplayItem 
                                 key={i}
                                 display={i+1}
-                                //height={this.seedNumber(Math.floor(Math.random() * 16) + 20)}
                                 height={this.state.heights[i]}
                             />
                         )

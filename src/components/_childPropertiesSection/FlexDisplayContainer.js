@@ -14,8 +14,8 @@ class FlexDisplayContainer extends Component {
         }
     }
     componentDidMount = () => {
-        this.setState({ heights: Array.from({length: 3}, (_, i) => this.getRandomValue(25, 60)) })
-        this.setState({ widths: Array.from({length: 3}, (_, i) => this.getRandomValue(60, 120)) }, () => console.log(this.state.widths))
+        this.setState({ heights: Array.from({length: 3}, (_, i) => this.getRandomValue(25, 75)) })
+        this.setState({ widths: Array.from({length: 3}, (_, i) => this.getRandomValue(60, 120)) })
     }
     getRandomValue = (min,max) => {
         return Math.floor(Math.random()*(max-min+1)+min);

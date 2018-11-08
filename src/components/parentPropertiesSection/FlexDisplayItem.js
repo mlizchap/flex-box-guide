@@ -24,13 +24,14 @@ export default FlexDisplayItem;
 const ItemStyle = styled.div`
     height: ${props => props.height}px;
     line-height: ${props => props.height}px;
+    width: ${props => props.width}px;
     border-radius: 2px;
     padding-right: 50px;
     padding-left: 50px;
     font-size: 14pt;
     text-align: center;
     margin: 5px;
-    background-color: ${globalStyle.parentPropColors.a}
+    background-color: ${globalStyle.parentPropColors.item}
     color: ${globalStyle.mainColor}
     font-family: ${globalStyle.titleFont}
 `

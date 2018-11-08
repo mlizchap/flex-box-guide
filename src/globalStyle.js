@@ -12,9 +12,9 @@ export const globalStyle = {
 
     parentPropColors: {
         main: '#49b7a4',
-        a: '#b5ffe6',
-        b: '#ddffe9',
-        c: '#a9e8ce',
+        subHeader: '#c9ffe8',
+        item: '#cbede0',
+        dropDownBtn: `#e0fffa`,
     },
 
     childPropColors: {

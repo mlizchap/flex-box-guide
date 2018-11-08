@@ -73,13 +73,15 @@ class ParentPropertiesSection extends Component {
                         {parentProperties.detail.map(property => {
                             return (
                                 <div className="section" key={property.camelCaseTitle}>
-                                    <h1>{property.kabobCaseTitle}</h1>
+                                    <h1 style={{color: globalStyle.parentPropColors.subHeader}}>{property.kabobCaseTitle}</h1>
                                     <DropDownMenuSectionStyle>
                                         <DropDownMenu 
                                             font={globalStyle.mainFont}
                                             handleSelect={(selected) => this.selectValue(selected, property.camelCaseTitle)}
                                             contentItems={property.values}
                                             defaultValue={property.defaultValue}
+                                            buttonColor={globalStyle.parentPropColors.dropDownBtn}
+                                            buttonFontColor={globalStyle.mainColor}
                                         />
                                     </DropDownMenuSectionStyle>
                                     <FlexDisplayContainer 

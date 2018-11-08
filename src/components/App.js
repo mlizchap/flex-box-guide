@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import FlexDirectionChange from './FlexDirectionChange';
-import ChildPropertiesSection from './childPropertiesSection';
+import ChildPropertiesSection from './_childPropertiesSection';
 import ParentPropertiesSection from './parentPropertiesSection';
 import { globalStyle } from '../globalStyle';
 import Header from './Header';
@@ -15,7 +15,6 @@ class App extends Component {
          };
     }
     render() {
-        console.log(this.state.direction)
         return (
             <div>
                 <Header />
@@ -38,17 +37,4 @@ const ContentDisplay = styled.div`
     width: 80%;
     margin-right: auto;
     margin-left: auto;
-    // .mainHeader {
-    //     padding: 10px;
-    //     display: inline-block;
-    //     font-family: ${globalStyle.titleFont};
-    //     color: ${globalStyle.mainColor}
-    // }
-    // .childrenPropsContent {
-    //     padding: 0 20px;
-    // }
-    // .childrenPropSection {
-    //     border: 1px solid ${globalStyle.mainColor}
-    //     margin: 80px;
-    // }
 `
