@@ -24,41 +24,39 @@ class FlexDisplayBox extends Component {
     render() {
         return (
             <React.Fragment>
-            <HorizantalAxis {...this.props}>
-                <div className="horizantalAxisContent">
-                    {(this.props.flexDirection === "row" || this.props.flexDirection === "row-reverse") ?
-                        <span>MAIN AXIS</span> : <span>CROSS AXIS</span>
-                    }
-                   
-                </div>
-            </HorizantalAxis>
-
-            <ItemsAndVertAxisStyle {...this.props}>
-                <VerticalAxis {...this.props}>
-                    <div className="verticalAxisContent">
+                <HorizantalAxis {...this.props}>
+                    <div className="horizantalAxisContent">
                         {(this.props.flexDirection === "row" || this.props.flexDirection === "row-reverse") ?
-                            <span>CROSS AXIS</span> : <span>MAIN AXIS</span>
+                            <span>MAIN AXIS</span> : <span>CROSS AXIS</span>
                         }
+                    
                     </div>
-                </VerticalAxis>
-                
-                <ItemContainerStyle {...this.props}>
-                    { Array.from({length: this.props.itemAmount}, (_, i) => {
-                        return (
-                            <FlexDisplayItem 
-                                key={i}
-                                display={i+1}
-                                height={this.state.heights[i]}
-                                bgColor={this.props.itemColor || this.props.itemColors[i]}
-                                {...this.props}
-                            />
-                        )
-                    })}
-                </ItemContainerStyle>
+                </HorizantalAxis>
 
-
-            </ItemsAndVertAxisStyle>
-                
+                <ItemsAndVertAxisStyle {...this.props}>
+                    <VerticalAxis {...this.props}>
+                        <div className="verticalAxisContent">
+                            {(this.props.flexDirection === "row" || this.props.flexDirection === "row-reverse") ?
+                                <span>CROSS AXIS</span> : <span>MAIN AXIS</span>
+                            }
+                        </div>
+                    </VerticalAxis>
+                    
+                    <ItemContainerStyle {...this.props}>
+                        { Array.from({length: this.props.itemAmount}, (_, i) => {
+                            return (
+                                <FlexDisplayItem 
+                                    key={i}
+                                    display={i+1}
+                                    height={this.state.heights[i]}
+                                    bgColor={this.props.itemColor || this.props.itemColors[i]}
+                                    textDisplay={this.props.characters[i]}
+                                    {...this.props}
+                                />
+                            )
+                        })}
+                    </ItemContainerStyle>
+                </ItemsAndVertAxisStyle>
             </React.Fragment>
         );
     }

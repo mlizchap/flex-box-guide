@@ -7,7 +7,7 @@ class FlexDisplayItem extends Component {
     render() {
         return (            
             <Item {...this.props}>
-                <div>{this.props.letter}</div>
+                <div>{this.props.textDisplay}</div>
             </Item>
         );
     }
@@ -17,11 +17,11 @@ export default FlexDisplayItem;
 
 const Item = styled.div`
     // FLEX PROPERTIES
-    flex-grow: ${props => props.flexGrow};
-    flex-shrink: ${props => props.flexShrink};
-    flex-basis: ${props => props.flexBasis};
-    align-self: ${props => props.alignSelf};
-    order: ${props => props.order};
+    flex-grow: ${props => props.childFlexProperties.flexGrow};
+    flex-shrink: ${props => props.childFlexProperties.flexShrink};
+    flex-basis: ${props => props.childFlexProperties.flexBasis};
+    align-self: ${props => props.childFlexProperties.alignSelf};
+    order: ${props => props.childFlexProperties.order};
 
     background-color: ${props => props.bgColor};
     color: ${globalStyle.mainColor};
