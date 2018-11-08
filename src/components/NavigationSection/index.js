@@ -13,7 +13,7 @@ class NavigationSection extends Component {
     render() {
         return (
             <NavigationStyle>
-                <GoTo {...this.props}/>
+                <GoTo {...this.props} />
                 <FlexDirectionChange {...this.props}/>
                 <Display />
             </NavigationStyle>

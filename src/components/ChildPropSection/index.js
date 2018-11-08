@@ -31,8 +31,8 @@ class ChildPropSection extends Component {
     handleScroll = () => {
         // console.log(this.flexLocation.current.getBoundingClientRect().top)
         // if (this.flexLocation.current.getBoundingClientRect().top > -2 && this.flexLocation.current.getBoundingClientRect().top < 5) {
-            console.log(this.flexLocation)
-            this.props.hasReachedTop("LOC", this.flexLocation);
+            // console.log(this.flexLocation)
+            // this.props.hasReachedTop("LOC", this.flexLocation);
         // }
     }
     componentDidMount = () => {

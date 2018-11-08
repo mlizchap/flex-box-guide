@@ -31,7 +31,7 @@ class App extends Component {
                 <ContentDisplay>
                     <ParentPropertiesSection flexDirection={this.state.direction} />
                     <ChildPropSection 
-                        hasReachedTop={(val) => console.log(val) }
+                        // hasReachedTop={(val) => console.log(val) }
                         flexDirection={this.state.direction} 
                         {...this.props}
                     />
