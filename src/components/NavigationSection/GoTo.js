@@ -98,17 +98,16 @@ class GoTo extends Component {
     }
     goToSelected = (content) => {
         let currentContentHref = sections.filter(i => content === i.title)[0].href;
-        console.log(currentContentHref);
+
         window.location.href = currentContentHref;
         window.scrollBy(0, -85); 
-        //let contentIndex = contents.indexOf(content);
-        //console.log(`#${hrefs[contentIndex]}`)
-        //window.location.href= `#${hrefs[contentIndex]}`;
-        //window.scrollBy(0, -85); 
     }
     renderContent = () => {
+        console.log(this)
         return sections.map((section) => {
             return section.title
+            // return (section.type === 'subheader') ? `\xa0\xa0\xa0\xa0${section.title}` : section.title
+           
             // console.log(section.title)
         //    return (
         //         <a key={section.id} href={`#${section.href}`} style={{ color: section.color, textDecoration: 'none' }}>
@@ -133,6 +132,7 @@ class GoTo extends Component {
                     defaultValue="Go To"
                     handleSelect={this.goToSelected}
                     displayCurrentOnTop={false}
+                    contentFontColor={globalStyle.mainColor}
                 />
                 {/* <div onScroll={this.scroll}>SCROLL</div> */}
             </GoToStyle>

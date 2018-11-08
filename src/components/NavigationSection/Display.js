@@ -19,6 +19,7 @@ class Display extends Component {
                     font={globalStyle.titleFont}
                     buttonColor={globalStyle.childPropColors.c}
                     buttonFontColor={globalStyle.childPropColors.main}
+                    defaultValue="display"
                 />
             </DisplayStyle>
         );
