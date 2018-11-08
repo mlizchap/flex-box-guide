@@ -66,12 +66,12 @@ class ParentPropertiesSection extends Component {
 
                 <SectionStyle>
                     <MainHeaderStyle color={globalStyle.parentPropColors.main}>
-                        <h3 className="mainHeader">PARENT PROPERTIES</h3>
+                        <h3 className="mainHeader" id="parentProperties">PARENT PROPERTIES</h3>
                     </MainHeaderStyle>
 
                         {parentProperties.detail.map(property => {
                             return (
-                                <div className="section" key={property.camelCaseTitle}>
+                                <div className="section" id={property.camelCaseTitle} key={property.camelCaseTitle}>
                                     <h1 style={{color: globalStyle.parentPropColors.subHeader}}>{property.kabobCaseTitle}</h1>
                                     <DropDownMenuSectionStyle>
                                         <DropDownMenu 

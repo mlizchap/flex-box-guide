@@ -6,8 +6,17 @@ export const MainHeaderStyle = styled.div`
         color: ${props => props.color}
         font-family: ${globalStyle.mainFont}
         font-size: 18pt;
-        padding: 10px;
+        //padding: 10px;
         display: inline-block;
         font-family: ${globalStyle.titleFont};
+        // margin-top: -50px;
+        &:before {
+            // height: 50px;
+            display: block;
+            content: '';
+        }
+        a {
+            height: 50px;
+        }
     }
 `

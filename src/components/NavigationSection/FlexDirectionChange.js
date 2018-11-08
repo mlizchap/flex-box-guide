@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { globalStyle } from '../globalStyle';
-import DropDownMenu from './DropDownMenu';
+import { globalStyle } from '../../globalStyle';
+import DropDownMenu from '../DropDownMenu';
 
 
 const selectionContent = ["row", "column", "row-reverse", "column-reverse"]
@@ -10,10 +10,10 @@ class FlexDirectionChange extends Component {
     render() {
         return (
             <FlexDirectionChangeStyle>
-                <div>
+                {/* <div> */}
                     <span className="title">flex-direction:</span>
                     {this.props.flexDirection}
-                </div>
+                {/* </div> */}
                 <span className="dropdown">
                     <DropDownMenu 
                         defaultValue="row" 
@@ -35,17 +35,10 @@ class FlexDirectionChange extends Component {
 export default FlexDirectionChange;
 
 const FlexDirectionChangeStyle = styled.div`
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    border-bottom: 1px solid ${globalStyle.mainColor};
-    z-index: 100;
-    width: 100%;
-    background-color: white;
+
     color: ${globalStyle.mainColor}
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    top: 0;
+
+    
     .dropdown {
         padding-top: 6px;
     }
@@ -57,3 +50,12 @@ const FlexDirectionChangeStyle = styled.div`
         font-family: ${globalStyle.titleFont};
     }
 `
+
+    // display: flex;
+    // justify-content: center;
+    // padding: 10px;
+    // border-bottom: 1px solid ${globalStyle.mainColor};
+    // z-index: 100;
+    // width: 100%;
+    // background-color: white;
+    //top: 0;

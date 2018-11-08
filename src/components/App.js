@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import FlexDirectionChange from './FlexDirectionChange';
+import NavigationSection from './NavigationSection';
 import ChildPropSection from './ChildPropSection';
 import ParentPropertiesSection from './ParentPropSection';
 import { globalStyle } from '../globalStyle';
@@ -18,13 +18,15 @@ class App extends Component {
         return (
             <div>
                 <Header />
-                <FlexDirectionChange 
+                {/* <FlexDirectionChange 
+                    handleSelect={(selectedItem) => this.setState({direction: selectedItem})} 
+                /> */}
+                <NavigationSection 
                     handleSelect={(selectedItem) => this.setState({direction: selectedItem})} 
                 />
                 <ContentDisplay>
                     <ParentPropertiesSection flexDirection={this.state.direction} />
                     <ChildPropSection flexDirection={this.state.direction}/>
-
                 </ContentDisplay> 
             </div>
         );
