@@ -50,8 +50,6 @@ export default (ChildComponent, divWidth) => {
         }
         startResizing = (e) => {  
             let maxPos = document.body.clientWidth - this.boxRef.current.offsetLeft;      
-
-            console.log(this.getRandom())
             
             
             if (e.clientX < maxPos && e.clientX > 300) {

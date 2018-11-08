@@ -75,10 +75,8 @@ class ChildPropertiesSection extends Component {
         };
     }
     updateNewValue = (selectedValue, title, letter) => {
-        console.log("Sel", title)
         this.setState(
-            { [title]: {...this.state[`${title}`], [letter]: (title === "flexBasis" || title === "alignSelf" ? selectedValue : parseInt(selectedValue))}}, 
-            () => console.log(this.state)
+            { [title]: {...this.state[`${title}`], [letter]: (title === "flexBasis" || title === "alignSelf" ? selectedValue : parseInt(selectedValue))}}
         )
     }
     render() {

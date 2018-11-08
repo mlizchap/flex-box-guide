@@ -58,7 +58,6 @@ class ParentPropertiesSection extends Component {
          };
     }
     selectValue = (propertyValue, propertyName) => {
-        console.log(this.state)
         this.setState({ [propertyName]: propertyValue})
     }
     render() {
