@@ -69,7 +69,7 @@ export const childProperties = {
                     title: "flex-grow",
                     camelCaseTitle: "flexGrow",
                     content: [0, 1, 2, 3, 4, 5],
-                    defaultValue: 1,
+                    defaultValue: 0,
                     color: "orange"
                 },
                 {

@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import DropDownMenu from '../DropDownMenu';
 import styled from 'styled-components';
@@ -7,16 +8,40 @@ class ItemCardDisplay extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            isMobile: true,
             currentValues: {
                 flexGrow: 1,
                 flexShrink: 1,
                 flexBasis: '30px',
                 alignSelf: 'auto'
-            }
+            },
+            childSelected: "a"
          };
     }
+    updateDimensions = (windowSize) => {
+        if (windowSize < 800) {
+            this.setState({ isMobile: true })
+        } else {
+            this.setState({ isMobile: false })
+        }
+    }    
+    componentDidMount = () => {
+        window.addEventListener("resize", () => this.updateDimensions(window.innerWidth) );
+    }
+    componentWillMount = () => {
+        this.updateDimensions(window.innerWidth);
+    }
     selectItem = (selectedValue, title, itemVal) => {
-        this.props.handleSelect(selectedValue, title, itemVal)
+        console.log(selectedValue, title, itemVal)
+        if (this.state.isMobile) {
+            this.props.handleSelect(selectedValue, title, this.state.childSelected)
+        } else {
+            this.props.handleSelect(selectedValue, title, itemVal)
+        }
+       
+    }
+    selectChild = (childSelected) => {
+        this.setState({ childSelected })
     }
     renderFlexValuesDisplay = (itemVal) => {
         return this.props.propertyValuesForCard.map(item => {
@@ -28,7 +53,6 @@ class ItemCardDisplay extends Component {
                    <span className="dropdown">
                    <DropDownMenu  
                         handleSelect={(selected) => this.selectItem(selected, item.camelCaseTitle, itemVal)} 
-                        
                         contentItems={item.content} 
                         defaultValue={item.defaultValue} 
                         width={100}
@@ -39,13 +63,32 @@ class ItemCardDisplay extends Component {
             )
        })
     }
+    renderMobileDropDownItemSelect = () => {
+        return (
+            <div>
+                <DropDownMenu  
+                    handleSelect={(selected) => this.selectChild(selected)} 
+                    contentItems={["a", "b", "c"]}
+                    defaultValue="a"
+                    width={70}
+                    font={globalStyle.mainFont}
+                    />
+            </div>
+        )
+    }
+    renderDeskTopItemDisplay = () => {
+        return (
+            <CardItemTitleStyle {...this.props}>
+                <h3>{this.props.item}</h3>
+            </CardItemTitleStyle>
+        )
+    }
     render() {
         return (
             <ItemCardStyle bgColor={globalStyle.childPropColors[`${this.props.item}`]}>
                 <div className="itemCard">
-                    <CardItemTitleStyle {...this.props}>
-                        <h3>{this.props.item}</h3>
-                    </CardItemTitleStyle>
+                    {(!this.state.isMobile) ? 
+                        this.renderDeskTopItemDisplay() : this.renderMobileDropDownItemSelect()}
                     {this.renderFlexValuesDisplay(this.props.item)}
                 </div>
             </ItemCardStyle>

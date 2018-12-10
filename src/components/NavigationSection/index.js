@@ -30,7 +30,7 @@ const NavigationStyle = styled.div`
     position: -webkit-sticky; /* Safari */
     position: sticky;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid #c6c6c6;
     width: 100%;
     top: 0px;
     padding: 70px;

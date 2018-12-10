@@ -22,7 +22,7 @@ class Header extends Component {
 export default Header;
 
 const HeaderStyle = styled.div`
-    padding: 15px;
+    padding: 15px 0;
     margin: 0;
     text-align: center;
     font-size: 22pt;

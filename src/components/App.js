@@ -19,7 +19,7 @@ class App extends Component {
     }
     render() {
         return (
-            <div>
+            <AppStyle>
                 <Header />
                 {/* <FlexDirectionChange 
                     handleSelect={(selectedItem) => this.setState({direction: selectedItem})} 
@@ -36,12 +36,17 @@ class App extends Component {
                         {...this.props}
                     />
                 </ContentDisplay> 
-            </div>
+            </AppStyle>
         );
     }
 }
 
 export default App;
+
+const AppStyle = styled.div`
+    width: 100%;
+    // background-color: blue;
+`
 
 const ContentDisplay = styled.div`
     width: 80%;

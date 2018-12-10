@@ -11,7 +11,7 @@ const parentProperties = {
     defaultValues: {
         justifyContent: "flex-start",
         alignItems: "flex-start",
-        flexWrap: "wrap",
+        flexWrap: "nowrap",
         alignContent: "flex-start"
     },
     detail: [
@@ -20,14 +20,14 @@ const parentProperties = {
             kabobCaseTitle: 'justify-content',
             values: ["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly"],
             defaultValue: "flex-start",
-            itemAmount: 4
+            itemAmount: 3
         },
         {
             camelCaseTitle: 'alignItems',
             kabobCaseTitle: 'align-items',
             values: ["flex-start", "flex-end", "center", "stretch", "baseline"],
             defaultValue: "flex-start",
-            itemAmount: 4
+            itemAmount: 3
         },
         {
             camelCaseTitle: 'alignContent',
@@ -63,7 +63,7 @@ class ParentPropertiesSection extends Component {
         return (
             <div style={{ marginBottom: '100px'}}>
 
-                <SectionStyle>
+                <SectionStyle color={globalStyle.parentPropColors.main}>
                     <MainHeaderStyle color={globalStyle.parentPropColors.main}>
                         <h3 className="mainHeader" id="parentProperties">PARENT PROPERTIES</h3>
                     </MainHeaderStyle>
@@ -84,22 +84,25 @@ class ParentPropertiesSection extends Component {
                                     </DropDownMenuSectionStyle>
                                     <FlexDisplayContainer 
                                         flexProperties={
-                                            {
-                                                ...parentProperties.defaultValues, 
-                                                [`${property.camelCaseTitle}`]: this.state[`${property.camelCaseTitle}`]
-                                            }
+                                            // in order to demonstrate align-content, the wrap needs to be on (which is not the default value)
+                                            (property.camelCaseTitle === "alignContent") ?
+                                                {
+                                                    ...parentProperties.defaultValues, 
+                                                    flexWrap: "wrap",
+                                                    [`${property.camelCaseTitle}`]: this.state[`${property.camelCaseTitle}`]
+                                                }
+                                            :   {
+                                                    ...parentProperties.defaultValues, 
+                                                    [`${property.camelCaseTitle}`]: this.state[`${property.camelCaseTitle}`]
+                                                }
                                         }
                                         itemAmount={property.itemAmount}
                                         {...this.props}
                                     /> 
                                 </div>
-
                             )
                         })}
                 </SectionStyle>
-                                    
-                
-
             </div>
         );
     }

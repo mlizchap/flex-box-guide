@@ -42,7 +42,7 @@ class ChildPropSection extends Component {
     render() {
         const {flexGrow, flexShrink, flexBasis, alignSelf,order} = this.state.flexProperties;
         return (
-            <SectionStyle>
+            <SectionStyle color={globalStyle.childPropColors.c}>
                 <MainHeaderStyle color={globalStyle.childPropColors.main}>
                     <h3 className="mainHeader" id="childProperties">CHILD PROPERTIES</h3>
                 </MainHeaderStyle>

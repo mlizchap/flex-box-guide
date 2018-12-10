@@ -37,7 +37,7 @@ export default FlexDirectionChange;
 const FlexDirectionChangeStyle = styled.div`
 
     color: ${globalStyle.mainColor}
-
+    // text-decoration: underline;
     
     .dropdown {
         padding-top: 6px;
