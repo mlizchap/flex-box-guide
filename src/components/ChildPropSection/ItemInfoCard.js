@@ -8,6 +8,7 @@ class ItemCardDisplay extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            windowWidth: 1000,
             isMobile: true,
             currentValues: {
                 flexGrow: 1,
@@ -18,27 +19,21 @@ class ItemCardDisplay extends Component {
             childSelected: "a"
          };
     }
-    updateDimensions = (windowSize) => {
-        if (windowSize < 800) {
-            this.setState({ isMobile: true })
-        } else {
-            this.setState({ isMobile: false })
-        }
-    }    
-    componentDidMount = () => {
-        window.addEventListener("resize", () => this.updateDimensions(window.innerWidth) );
-    }
-    componentWillMount = () => {
-        this.updateDimensions(window.innerWidth);
-    }
+    // updateSize = (windowSize) => {
+    //     this.setState({ windowWidth: windowSize }, () => console.log(this.state.windowWidth))
+    // }    
+    // componentDidMount = () => {
+    //     window.addEventListener("resize", () => this.updateSize(window.innerWidth) )
+    // }
+    // componentWillUnmount() {
+    //     window.removeEventListener('resize', this.updateSize);
+    //   }
     selectItem = (selectedValue, title, itemVal) => {
-        console.log(selectedValue, title, itemVal)
         if (this.state.isMobile) {
             this.props.handleSelect(selectedValue, title, this.state.childSelected)
         } else {
             this.props.handleSelect(selectedValue, title, itemVal)
         }
-       
     }
     selectChild = (childSelected) => {
         this.setState({ childSelected })
@@ -65,8 +60,9 @@ class ItemCardDisplay extends Component {
     }
     renderMobileDropDownItemSelect = () => {
         return (
-            <div>
+            <div className="childDropdown">
                 <DropDownMenu  
+                    small
                     handleSelect={(selected) => this.selectChild(selected)} 
                     contentItems={["a", "b", "c"]}
                     defaultValue="a"
@@ -88,7 +84,7 @@ class ItemCardDisplay extends Component {
             <ItemCardStyle bgColor={globalStyle.childPropColors[`${this.props.item}`]}>
                 <div className="itemCard">
                     {(!this.state.isMobile) ? 
-                        this.renderDeskTopItemDisplay() : this.renderMobileDropDownItemSelect()}
+                        this.renderDeskTopItemDisplay() : this.renderMobileDropDownItemSelect()} 
                     {this.renderFlexValuesDisplay(this.props.item)}
                 </div>
             </ItemCardStyle>
@@ -120,6 +116,19 @@ const ItemCardStyle = styled.div`
         font-family: ${globalStyle.titleFont};
         color: ${globalStyle.childPropColors.main}
         font-size: 12pt;
+    }
+    .childDropdown {
+        // background-color: orange;
+        margin-bottom: 20px;
+    }
+    .childDropdown button {
+        background-color: white;
+        color: #5e7999
+        padding: 5px 5px;
+        // border-radius: 5px;
+        &:hover {
+            cursor: pointer;
+        }
     }
     .itemCard {
         display: inline-block;

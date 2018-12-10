@@ -104,6 +104,8 @@ const DropDownMenuStyle = styled.div`
     .arrow {
         float: right;
         padding-right: 5px;
+        font-size: ${ props => props.small ? '7pt' : 'inherit'};
+        padding-top: ${ props => props.small ? '2pt' : 'inherit'};
     }
 `
 

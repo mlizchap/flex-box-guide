@@ -12,7 +12,7 @@ class ItemInfoCardContainer extends Component {
          };
     }
     updateDimensions = (windowSize) => {
-        if (windowSize < 800) {
+        if (windowSize < 1300) {
             this.setState({ isMobile: true })
         } else {
             this.setState({ isMobile: false })
@@ -40,8 +40,8 @@ class ItemInfoCardContainer extends Component {
     }
     render() {
         return (
-            <ItemCardContainerStyle>
-                {(this.state.isMobile) ? this.renderMobileView() : this.renderDesktopView()}
+            <ItemCardContainerStyle isMobile={this.state.isMobile}> 
+                {(this.state.isMobile) ? this.renderMobileView() : <div className="desktopView">{this.renderDesktopView()}</div>}
             </ItemCardContainerStyle>
         )
 
@@ -50,7 +50,14 @@ class ItemInfoCardContainer extends Component {
 
 const ItemCardContainerStyle = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: ${(props => props.isMobile) ? 'center' : 'space-between'};
+    .desktopView {
+        display: flex;
+        justify-content: space-between;
+        // background-color: orange;
+        width: 100%;
+    }
+
 `
 
 export default ItemInfoCardContainer;
